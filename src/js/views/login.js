@@ -1,7 +1,7 @@
 import React from "react";
 
-export const Home = () => (
+export const Login = () => (
 	<div>
-		HomePage
+        Login
 	</div>
 );
