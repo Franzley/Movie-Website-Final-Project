@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 
+const placeholder = {
+  background: "grey",
+  position: "absolute",
+  bottom: "0",
+  width: "100%"
+};
+
+
 export const Footer = () => (
-	<footer>
-		Footer Stuff
-	</footer>
+  <footer style={placeholder}>Footer</footer>
 );

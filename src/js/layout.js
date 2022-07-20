@@ -1,13 +1,16 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
+import { AuthProvider } from "./firebase/AuthContext";
 
 import { Home } from "./views/home";
+import { Signup } from "./views/signup";
 import { Login } from "./views/login";
 import { SearchResults } from "./views/searchresults";
 import { WatchList } from "./views/watchlist";
 
 import injectContext from "./store/appContext";
+import PrivateRoute from "./component/PrivateRoute";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -21,11 +24,15 @@ const Layout = () => {
 	return (
 		<div>
 			<BrowserRouter basename={basename}>
+			<AuthProvider>
 				<ScrollToTop>
 					<Navbar />
 					<Switch>
 						<Route exact path="/">
 							<Home />
+						</Route>
+						<Route exact path="/signup">
+							<Signup />
 						</Route>
 						<Route exact path="/login">
 							<Login />
@@ -33,17 +40,17 @@ const Layout = () => {
 						<Route exact path="/search">
 							<SearchResults />
 						</Route>
-						<Route exact path="/watch">
-							<WatchList />
-						</Route>
+						<PrivateRoute exact path="/watch" component={WatchList} />
 						<Route>
 							<h1>Not found!</h1>
 						</Route>
 					</Switch>
 					<Footer />
 				</ScrollToTop>
+				</AuthProvider>
 			</BrowserRouter>
 		</div>
+		
 	);
 };
 
