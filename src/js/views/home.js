@@ -3,7 +3,6 @@ import { Card, Button, Alert } from "react-bootstrap";
 
 export const Home = () => {
 	function handleLogout(){
-
 	}
 
 return(
