@@ -24,33 +24,33 @@ const Layout = () => {
 	return (
 		<div>
 			<BrowserRouter basename={basename}>
-			<AuthProvider>
-				<ScrollToTop>
-					<Navbar />
-					<Switch>
-						<Route exact path="/">
-							<Home />
-						</Route>
-						<Route exact path="/signup">
-							<Signup />
-						</Route>
-						<Route exact path="/login">
-							<Login />
-						</Route>
-						<Route exact path="/search">
-							<SearchResults />
-						</Route>
-						<PrivateRoute exact path="/watch" component={WatchList} />
-						<Route>
-							<h1>Not found!</h1>
-						</Route>
-					</Switch>
-					<Footer />
-				</ScrollToTop>
+				<AuthProvider>
+					<ScrollToTop>
+						<Navbar />
+						<Switch>
+							<Route exact path="/">
+								<Home />
+							</Route>
+							<Route exact path="/signup">
+								<Signup />
+							</Route>
+							<Route exact path="/login">
+								<Login />
+							</Route>
+							<Route exact path="/search">
+								<SearchResults />
+							</Route>
+							<PrivateRoute exact path="/watch" component={WatchList} />
+							<Route>
+								<h1>Not found!</h1>
+							</Route>
+						</Switch>
+						{/* <Footer /> */}
+					</ScrollToTop>
 				</AuthProvider>
 			</BrowserRouter>
 		</div>
-		
+
 	);
 };
 
