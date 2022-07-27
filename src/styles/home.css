@@ -1,0 +1,37 @@
+.mainHomeScreen {
+  display: flex;
+  background: #c61019;
+}
+.tv {
+  width: 530px;
+  padding-top: 60px;
+}
+.leftHome {
+  margin-top: 130px;
+  margin-left: 60px;
+}
+.leftHome h1 {
+  font-size: 70px;
+}
+.middleHome {
+  background: black;
+  display: flexbox;
+  padding-left: 60px;
+}
+.blurb {
+  color: white;
+  padding-top: 50px;
+}
+.movieList {
+  color: white;
+  margin-top: 40px;
+}
+.topMovies {
+  font-size: 40px;
+}
+.results {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
