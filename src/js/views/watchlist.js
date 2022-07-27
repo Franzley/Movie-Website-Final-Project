@@ -20,6 +20,7 @@ export const WatchList = () => {
       .then((querySnapshot) => {
         setWatchList([]);
         querySnapshot.forEach((doc) => {
+          console.log("The id is: ",doc.id)
           setWatchList((current) => {
             return [...current, doc.data()];
           });
@@ -101,9 +102,11 @@ export const WatchList = () => {
               : `Number of Movies Added: ${watchList.length}`}
           </h4>
           <hr></hr>
+          <ul>
           {watchList.map((item, index) => {
-            return <p key={index}>{item.watchList}</p>;
+            return <li key={index}>{item.watchList}</li>;
           })}
+          </ul>
         </Card.Body>
       </Card>
       {/* Temporary Movie Watch List END */}
