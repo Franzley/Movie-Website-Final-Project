@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../firebase/AuthContext";
+import logo from "/Users/concetta/Movie-Website-Final-Project/Movie-Website-Final-Project/src/images/logo.png";
 
 export const Navbar = () => {
   const { currentUser } = useAuth();
@@ -16,10 +17,10 @@ export const Navbar = () => {
         {!currentUser ? (
           <>
             <Link to="/signup">
-              <button className="btn btn-primary">Join Now</button>
+              <button className="btn btn-danger">Join Now</button>
             </Link>
             <Link to="/login">
-              <button className="btn btn-primary">Login</button>
+              <button className="btn btn-danger">Login</button>
             </Link>
           </>
         ) : (
@@ -27,11 +28,14 @@ export const Navbar = () => {
         )}
         {currentUser ? (
           <Link to="/watch">
-            <button className="btn btn-primary">WatchList</button>
+            <button className="btn btn-danger">WatchList</button>
           </Link>
         ) : (
           ""
         )}
+        				<Link to="/search">
+					<button className="btn btn-danger m-1">Movie Search</button>
+				</Link>
       </div>
     </nav>
   );
