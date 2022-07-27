@@ -1,0 +1,22 @@
+.result-card {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.info {
+  background: #1f1f1f;
+  width: 200px;
+  color: white;
+  padding: 10px;
+  border-radius: 0px 0px 15px 15px;
+}
+
+.title {
+  font-size: 15px;
+}
+.release-date {
+  font-size: 10px;
+}
+.vote-average {
+  font-size: 20px;
+}

@@ -11,7 +11,7 @@
   margin-left: 60px;
 }
 .leftHome h1 {
-  font-size: 50px;
+  font-size: 70px;
 }
 .middleHome {
   background: black;
@@ -29,6 +29,9 @@
 .topMovies {
   font-size: 40px;
 }
-.card-body {
-  color: black;
+.results {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
 }

@@ -1,30 +1,60 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Card, Button, Alert } from "react-bootstrap";
 import '../../styles/home.css';
 import group from "/Users/concetta/Movie-Website-Final-Project/Movie-Website-Final-Project/src/images/group.png";
+import { ResultCard } from "../component/ResultCard";
 
 export const Home = () => {
 	function handleLogout() {
 	}
 
-	var requestOptions = {
-		method: 'GET',
-		redirect: 'follow'
-	};
+	const [topMoviesAllTime, setTopMoviesAllTime] = useState([])
+	const [topMoviesToday, setTopMoviesToday] = useState([])
+	const [topMoviesThisWeek, setTopMoviesThisWeek] = useState([])
 
-	fetch("https://api.themoviedb.org/3/movie/550?api_key=55e81c3707b1511daf33d639a483655c", requestOptions)
-		.then(response => response.text())
-		.then(result => console.log(result))
-		.catch(error => console.log('error', error));
+
+	const fetchData = () => {
+
+		fetch("https://api.themoviedb.org/3/movie/top_rated?api_key=55e81c3707b1511daf33d639a483655c&language=en-US&page=1")
+			.then(response => response.json())
+			.then(data => {
+				console.log(data)
+				setTopMoviesAllTime(data.results)
+			})
+			.catch(error => console.log('error', error));
+
+		fetch("https://api.themoviedb.org/3/trending/movie/day?api_key=55e81c3707b1511daf33d639a483655c")
+			.then(response => response.json())
+			.then(data => {
+				console.log(data)
+				setTopMoviesToday(data.results)
+			})
+			.catch(error => console.log('error', error));
+
+		fetch("https://api.themoviedb.org/3/trending/movie/week?api_key=55e81c3707b1511daf33d639a483655c")
+			.then(response => response.json())
+			.then(data => {
+				console.log(data)
+				setTopMoviesThisWeek(data.results)
+			})
+			.catch(error => console.log('error', error));
+
+
+	}
+
+	useEffect(() => {
+		fetchData()
+	}, [])
+
 
 	return (
 		<>
-			<Card>
+			{/* <Card>
 				<Card.Body>
 					<h2 className="text-center mb-4">Home</h2>
 				</Card.Body>
-			</Card>
-			<div className="w-100 text-center mt-2">
+			</Card> */}
+			<div className="w-100 text-center">
 				<Button variant="link" onClick={handleLogout}>Log Out</Button>
 			</div>
 			{/* title screen */}
@@ -40,35 +70,44 @@ export const Home = () => {
 				<p className="blurb">Browse movies and add them to your watchlist.</p>
 				<div className="movieList">
 					<p className="topMovies">Top Movies of All Time</p>
-					<div className="card" style={{ width: "15rem" }}>
-						<img className="card-img-top" src="..." alt="Movie Poster" />
-						<div className="card-body">
-							<h5 className="card-title">Movie title</h5>
-							<p className="card-text">(Movie Year)</p>
-							<a href="#" className="btn btn-primary">Add to Watchlist</a>
-						</div>
+					<div className="results-list">
+						{topMoviesAllTime.length > 0 && (
+							<ul className="results">
+								{topMoviesAllTime.map(movie => (
+									<li key={movie.id}>
+										<ResultCard movie={movie} />
+									</li>
+								))}
+							</ul>
+						)}
 					</div>
 				</div>
 				<div className="movieList">
-					<p className="topMovies">Top Movies of This Month</p>
-					<div className="card" style={{ width: "15rem" }}>
-						<img className="card-img-top" src="..." alt="Movie Poster" />
-						<div className="card-body">
-							<h5 className="card-title">Movie title</h5>
-							<p className="card-text">(Movie Year)</p>
-							<a href="#" className="btn btn-primary">Add to Watchlist</a>
-						</div>
+					<p className="topMovies">Top Movies Today</p>
+					<div className="results-list">
+						{topMoviesToday.length > 0 && (
+							<ul className="results">
+								{topMoviesToday.map(movie => (
+									<li key={movie.id}>
+										<ResultCard movie={movie} />
+									</li>
+								))}
+							</ul>
+						)}
 					</div>
 				</div>
 				<div className="movieList">
-					<p className="topMovies">Top Movies of This Week</p>
-					<div className="card" style={{ width: "15rem" }}>
-						<img className="card-img-top" src="..." alt="Movie Poster" />
-						<div className="card-body">
-							<h5 className="card-title">Movie title</h5>
-							<p className="card-text">(Movie Year)</p>
-							<a href="#" className="btn btn-primary">Add to Watchlist</a>
-						</div>
+					<p className="topMovies">Top Movies This Week</p>
+					<div className="results-list">
+						{topMoviesThisWeek.length > 0 && (
+							<ul className="results">
+								{topMoviesThisWeek.map(movie => (
+									<li key={movie.id}>
+										<ResultCard movie={movie} />
+									</li>
+								))}
+							</ul>
+						)}
 					</div>
 				</div>
 			</div>
