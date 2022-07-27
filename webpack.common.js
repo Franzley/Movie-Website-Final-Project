@@ -38,6 +38,9 @@ module.exports = {
   resolve: {
     extensions: ['*', '.js']
   },
+  experiments: {
+    topLevelAwait: true
+    },
   plugins: [
     new HtmlWebpackPlugin({
         favicon: '4geeks.ico',
