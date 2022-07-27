@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Card, Button, Alert } from "react-bootstrap";
 import '../../styles/home.css';
-import group from "/Users/concetta/Movie-Website-Final-Project/Movie-Website-Final-Project/src/images/group.png";
+import group from "/workspace/Movie-Website-Final-Project/src/images/group.png";
 import { ResultCard } from "../component/ResultCard";
 
 export const Home = () => {

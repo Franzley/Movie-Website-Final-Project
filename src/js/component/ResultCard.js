@@ -1,8 +1,8 @@
 import React from 'react'
 import "../../styles/ResultCard.css"
-import excellent from "/Users/concetta/Movie-Website-Final-Project/Movie-Website-Final-Project/src/images/excellent.png"
-import good from "/Users/concetta/Movie-Website-Final-Project/Movie-Website-Final-Project/src/images/good.png"
-import bad from "/Users/concetta/Movie-Website-Final-Project/Movie-Website-Final-Project/src/images/bad.png"
+import excellent from "/workspace/Movie-Website-Final-Project/src/images/excellent.png"
+import good from "/workspace/Movie-Website-Final-Project/src/images/good.png"
+import bad from "/workspace/Movie-Website-Final-Project/src/images/bad.png"
 import { useState, useContext } from "react";
 import { Context } from "../store/appContext.js";
 

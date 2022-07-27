@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../firebase/AuthContext";
-import logo from "/Users/concetta/Movie-Website-Final-Project/Movie-Website-Final-Project/src/images/logo.png";
+import logo from "/workspace/Movie-Website-Final-Project/src/images/logo.png";
 
 export const Navbar = () => {
   const { currentUser } = useAuth();
