@@ -25,9 +25,13 @@ export const Navbar = () => {
         ) : (
           ""
         )}
-        <Link to="/watch">
-          <button className="btn btn-primary">WatchList</button>
-        </Link>
+        {currentUser ? (
+          <Link to="/watch">
+            <button className="btn btn-primary">WatchList</button>
+          </Link>
+        ) : (
+          ""
+        )}
       </div>
     </nav>
   );

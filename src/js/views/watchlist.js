@@ -65,7 +65,7 @@ export const WatchList = () => {
 
   //ONLOAD --> Runs once on initial or reload
   useEffect(() => {
-    console.log("sfknjsdfj",currentUser)
+    console.log("sfknjsdfj", currentUser);
     getCollection();
   }, []);
 
@@ -95,7 +95,11 @@ export const WatchList = () => {
             </Form.Group>
           </Form>
           <br></br>
-          <h4>{watchList.length === 0 ? "Add a movie" : `Number of Movies Added: ${watchList.length}`}</h4>
+          <h4>
+            {watchList.length === 0
+              ? "Add a movie"
+              : `Number of Movies Added: ${watchList.length}`}
+          </h4>
           <hr></hr>
           {watchList.map((item, index) => {
             return <p key={index}>{item.watchList}</p>;
