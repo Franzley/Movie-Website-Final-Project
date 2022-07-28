@@ -5,9 +5,6 @@ import group from "../../images/group.png";
 import { ResultCard } from "../component/ResultCard";
 
 export const Home = () => {
-	function handleLogout() {
-	}
-
 	const [topMoviesAllTime, setTopMoviesAllTime] = useState([])
 	const [topMoviesToday, setTopMoviesToday] = useState([])
 	const [topMoviesThisWeek, setTopMoviesThisWeek] = useState([])
@@ -54,9 +51,6 @@ export const Home = () => {
 					<h2 className="text-center mb-4">Home</h2>
 				</Card.Body>
 			</Card> */}
-			<div className="w-100 text-center">
-				<Button variant="link" onClick={handleLogout}>Log Out</Button>
-			</div>
 			{/* title screen */}
 			<div className="mainHomeScreen">
 				<div className="leftHome">
