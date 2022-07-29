@@ -1,15 +1,16 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Card, Button, Alert, Form } from "react-bootstrap";
 import { useAuth } from "../firebase/AuthContext";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
+import { ResultCard } from "../component/ResultCard";
 
 export const WatchList = () => {
-  const [error, setError] = useState("");
+  // const [error, setError] = useState("");
   const { currentUser, logout } = useAuth();
-  const history = useHistory();
-  const movieRef = useRef();
+  // const history = useHistory();
+  // const movieRef = useRef();
   const [watchList, setWatchList] = useState([]);
   const db = firebase.firestore();
 
@@ -20,49 +21,50 @@ export const WatchList = () => {
       .then((querySnapshot) => {
         setWatchList([]);
         querySnapshot.forEach((doc) => {
-          console.log("The id is: ",doc.id)
+          // console.log("The id is: ",doc.id)
           setWatchList((current) => {
-            return [...current, doc.data()];
+            return [...current, {...doc.data().movie, collection_ID: doc.id}];
           });
+          // console.log(doc.data().movie.id)
         });
       });
   };
 
-  //Logout Feature
-  async function handleLogout() {
-    setError("");
-    try {
-      await logout();
-      history.pushState("/login");
-    } catch {
-      setError("Failed to log out");
-    }
-  }
+  // //Logout Feature
+  // async function handleLogout() {
+  //   setError("");
+  //   try {
+  //     await logout();
+  //     history.pushState("/login");
+  //   } catch {
+  //     setError("Failed to log out");
+  //   }
+  // }
 
-  //Search for a new movie title
-  function handleSearch(e) {
-    const newMovie = movieRef.current.value;
-    e.preventDefault();
-    console.log(newMovie);
-    movieRef.current.value = "";
-    addToWatchList(newMovie);
-  }
+  // //Search for a new movie title
+  // function handleSearch(e) {
+  //   const newMovie = movieRef.current.value;
+  //   e.preventDefault();
+  //   console.log(newMovie);
+  //   movieRef.current.value = "";
+  //   addToWatchList(newMovie);
+  // }
 
-  //Store new movie in Database
-  function addToWatchList(movie) {
-    // Initialize Cloud Firestore and get a reference to the service
-    db.collection(currentUser.email)
-      .add({
-        watchList: movie,
-      })
-      .then((docRef) => {
-        console.log("Document written with ID: ", docRef.id);
-      })
-      .catch((error) => {
-        console.error("Error adding document: ", error);
-      });
-    getCollection();
-  }
+  // //Store new movie in Database
+  // function addToWatchList(movie) {
+  //   // Initialize Cloud Firestore and get a reference to the service
+  //   db.collection(currentUser.email)
+  //     .add({
+  //       watchList: movie,
+  //     })
+  //     .then((docRef) => {
+  //       console.log("Document written with ID: ", docRef.id);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error adding document: ", error);
+  //     });
+  //   getCollection();
+  // }
 
   //ONLOAD --> Runs once on initial or reload
   useEffect(() => {
@@ -75,13 +77,33 @@ export const WatchList = () => {
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">Watch List</h2>
-          {error && <Alert variant="danger">{error}</Alert>}
+          {/* {error && <Alert variant="danger">{error}</Alert>} */}
           <strong>Email: </strong>
           {currentUser.email}
         </Card.Body>
       </Card>
+      {/* testing */}
+      <br></br>
+      <h4>
+            {watchList.length === 0
+              ? "Add a movie"
+              : `Number of Movies Added: ${watchList.length}`}
+          </h4>
+          <hr></hr>
+      <div className="search-results-list">
+					{
+						<ul className="results">
+							{watchList.map(movie => (
+								<li key={movie.id}>
+									<ResultCard movie={movie} />
+								</li>
+							))}
+						</ul>
+					}
+				</div>
+      {/* end testing */}
       {/* Temporary Movie Watch List */}
-      <Card>
+      {/* <Card>
         <Card.Body>
           <h2 className="text-center mb-4">Search Movie</h2>
           <Form onSubmit={handleSearch}>
@@ -108,13 +130,13 @@ export const WatchList = () => {
           })}
           </ul>
         </Card.Body>
-      </Card>
+      </Card> */}
       {/* Temporary Movie Watch List END */}
-      <div className="w-100 text-center mt-2">
+      {/* <div className="w-100 text-center mt-2">
         <Button variant="link" onClick={handleLogout}>
           Log Out
         </Button>
-      </div>
+      </div> */}
     </>
   );
 };
