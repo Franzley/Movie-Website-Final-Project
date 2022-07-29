@@ -1,14 +1,20 @@
-import React from 'react'
+import React, { useState, useContext } from 'react'
 import "../../styles/ResultCard.css"
 import excellent from "../../images/excellent.png"
 import good from "../../images/good.png"
 import bad from "../../images/bad.png"
-import { useState, useContext } from "react";
 import { Context } from "../store/appContext.js";
+import { useAuth } from "../firebase/AuthContext";
 
 
 export const ResultCard = ({ movie }) => {
     const { store, actions } = useContext(Context);
+    const { currentUser } = useAuth();
+
+    function addToWatchList() {
+        // Initialize Cloud Firestore and get a reference to the service
+       actions.addToWatchList(currentUser.email, movie)
+      }
 
     //determines what face appears next to the rating
     const rateFace = () => {
@@ -46,7 +52,7 @@ export const ResultCard = ({ movie }) => {
                 </div>
 
                 <div className='controls'>
-                    <button className='btn btn-danger' onClick={() => actions.addMovieToWatchlist()}>Add to Watchlist</button>
+                    <button className='btn btn-danger' onClick={addToWatchList}>Add to Watchlist</button>
                 </div>
             </div>
         </div>
