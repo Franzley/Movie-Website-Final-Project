@@ -66,7 +66,7 @@ export const Home = () => {
 					<p className="topMovies">Top Movies of All Time</p>
 					<div className="results-list">
 						{topMoviesAllTime.length > 0 && (
-							<ul className="results">
+							<ul className="top-results">
 								{topMoviesAllTime.map(movie => (
 									<li key={movie.id}>
 										<ResultCard movie={movie} />
@@ -80,7 +80,7 @@ export const Home = () => {
 					<p className="topMovies">Top Movies Today</p>
 					<div className="results-list">
 						{topMoviesToday.length > 0 && (
-							<ul className="results">
+							<ul className="top-results">
 								{topMoviesToday.map(movie => (
 									<li key={movie.id}>
 										<ResultCard movie={movie} />
@@ -94,7 +94,7 @@ export const Home = () => {
 					<p className="topMovies">Top Movies This Week</p>
 					<div className="results-list">
 						{topMoviesThisWeek.length > 0 && (
-							<ul className="results">
+							<ul className="top-results">
 								{topMoviesThisWeek.map(movie => (
 									<li key={movie.id}>
 										<ResultCard movie={movie} />
