@@ -26,25 +26,6 @@ export const WatchList = () => {
     console.log("New useeffect", store.watchlist)
   }, [store.watchlist]);
 
-  // const getCollection = () => {
-  //   db.collection(currentUser.email)
-  //     .get()
-  //     .then((querySnapshot) => {
-  //       setWatchList([]);
-  //       querySnapshot.forEach((doc) => {
-  //         // console.log("The id is: ",doc.id)
-  //         setWatchList((current) => {
-  //           return [...current, {...doc.data().movie, collection_ID: doc.id}];
-  //         });
-  //       });
-  //     });
-  // };
- 
-  // useEffect(() => {
-  //   getCollection();
-  // }, []);
-
-
   return (
     <>
       <Card>
