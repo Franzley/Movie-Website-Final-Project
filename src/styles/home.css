@@ -29,9 +29,9 @@
 .topMovies {
   font-size: 40px;
 }
-.results {
+.top-results {
   width: 100%;
+  display: inline-flex;
+  overflow-x: scroll;
   list-style: none;
-  display: flex;
-  flex-wrap: wrap;
 }
