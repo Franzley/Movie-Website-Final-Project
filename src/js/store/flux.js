@@ -8,7 +8,7 @@ const getState = ({ getStore, getActions, setStore }) => {
     store: {
       watchlist: [],
       watched: [],
-    }, 
+    },
     actions: {
       loadSomeData: () => {
         // getCollection();
@@ -31,7 +31,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         db.collection(currentUser)
           .get()
           .then((querySnapshot) => {
-            setStore({ watchlist: {} });
+            setStore({ watchlist: [] });
             querySnapshot.forEach((doc) => {
               //   setStore({watchlist: doc.data().movie});
               watchListArr.push(doc.data().movie);
@@ -44,19 +44,21 @@ const getState = ({ getStore, getActions, setStore }) => {
             // console.log("StoreInfo: ",store.watchlist)
           });
       },
-      deleteFromWatchList: (newContact) => {
+      deleteFromWatchList: (currentUser, id) => {
         const store = getStore();
+        db.collection(currentUser)
+          .doc(id)
+          .delete()
+          .then(() => {
+            console.log("Document successfully deleted!");
+          })
+          // .then(getCollection())
+          .catch((error) => {
+            console.error("Error removing document: ", error);
+          });
       },
     },
   };
 };
 
 export default getState;
-
-// (current) => {
-// 	console.log(store.watchlist)
-// 	return [
-// 	  ...current,
-// 	  { ...doc.data().movie, collection_ID: doc.id },
-// 	];
-//   }

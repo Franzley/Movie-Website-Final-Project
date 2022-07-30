@@ -7,42 +7,42 @@ import { Context } from "../store/appContext.js";
 import { ResultCard } from "../component/ResultCard";
 
 export const WatchList = () => {
-    // const [error, setError] = useState("");
     const { currentUser, logout } = useAuth();
-    // const history = useHistory();
-    // const movieRef = useRef();
     const [watchList, setWatchList] = useState([]);
     const db = firebase.firestore();
   const { store, actions } = useContext(Context);
 
-  // const getCollection = () => {
-  //   actions.getFromWatchList(currentUser.email)
-  //   console.log("storeValues", store)
-  //   console.log("movieList watchlist", store.watchlist)
-  // };
- 
-  // useEffect(() => {
-  //   getCollection();
-  // }, []);
-
   const getCollection = () => {
-    db.collection(currentUser.email)
-      .get()
-      .then((querySnapshot) => {
-        setWatchList([]);
-        querySnapshot.forEach((doc) => {
-          // console.log("The id is: ",doc.id)
-          setWatchList((current) => {
-            return [...current, {...doc.data().movie, collection_ID: doc.id}];
-          });
-          // console.log(doc.data().movie.id)
-        });
-      });
+    actions.getFromWatchList(currentUser.email)
   };
  
   useEffect(() => {
     getCollection();
   }, []);
+
+  useEffect(() => {
+    setWatchList(store.watchlist)
+    console.log("storeValues", store)
+    console.log("New useeffect", store.watchlist)
+  }, [store.watchlist]);
+
+  // const getCollection = () => {
+  //   db.collection(currentUser.email)
+  //     .get()
+  //     .then((querySnapshot) => {
+  //       setWatchList([]);
+  //       querySnapshot.forEach((doc) => {
+  //         // console.log("The id is: ",doc.id)
+  //         setWatchList((current) => {
+  //           return [...current, {...doc.data().movie, collection_ID: doc.id}];
+  //         });
+  //       });
+  //     });
+  // };
+ 
+  // useEffect(() => {
+  //   getCollection();
+  // }, []);
 
 
   return (
@@ -68,7 +68,7 @@ export const WatchList = () => {
 						<ul className="results">
 							{watchList.map(movie => (
 								<li key={movie.id}>
-									<ResultCard movie={movie} />
+									<ResultCard movie={movie} collection_ID={movie.collection_ID} />
 								</li>
 							))}
 						</ul>
