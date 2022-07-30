@@ -14,8 +14,11 @@ export const Signup = () => {
   const history = useHistory();
 
   async function handleSubmit(e) {
+    //Do not reload page when submitting
     e.preventDefault();
 
+    //Confirm passwords match when creating an account
+    //Return an error if passwords do not match and prevent creation
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
       return setError("Passwords do not match");
     }

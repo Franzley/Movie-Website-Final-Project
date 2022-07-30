@@ -7,13 +7,15 @@ import { Context } from "../store/appContext.js";
 import { useAuth } from "../firebase/AuthContext";
 
 export const ResultCard = (props) => {
-  const { store, actions } = useContext(Context);
+  const { actions } = useContext(Context);
   const { currentUser } = useAuth();
   const movie = props.movie;
 
+  //Calls function to add selected movie to watch list
   function addToWatchList() {
     actions.addToWatchList(currentUser.email, movie);
   }
+  //Calls function to remove selected movie from watch list
   function deleteWatchList(currentUser, id) {
     actions.deleteFromWatchList(currentUser, id);
   }
@@ -57,12 +59,13 @@ export const ResultCard = (props) => {
             {movie.release_date ? movie.release_date.substring(0, 4) : "-"}
           </h4>
         </div>
-
+        {/* Selected movie to be added to watch list */}
         <div className="controls">
           <button className="btn btn-primary" onClick={addToWatchList}>
             Add to Watchlist
           </button>
         </div>
+        {/* Remove selected movie from the watch list */}
         <div className="controls">
           <button
             className="btn btn-danger"

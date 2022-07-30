@@ -3,12 +3,12 @@ import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useAuth } from "../firebase/AuthContext";
 import { useHistory } from "react-router-dom";
-// import logo from "/workspace/Movie-Website-Final-Project/src/images/logo.png";
-// import logo from "../../images/logo.png";
 
 export const Navbar = () => {
   const [error, setError] = useState("");
   const history = useHistory();
+  const { currentUser, logout } = useAuth();
+
   //Logout Feature
   async function handleLogout() {
     setError("");
@@ -19,7 +19,7 @@ export const Navbar = () => {
       setError("Failed to log out");
     }
   }
-  const { currentUser, logout } = useAuth();
+
   return (
     <nav className="navbar navbar-light bg-light mb-3">
       <Link to="/">
@@ -29,9 +29,11 @@ export const Navbar = () => {
         <form>
           <input placeholder="Search" />
         </form>
+        {/* Button to search for movies */}
         <Link to="/search">
           <button className="btn btn-danger m-1">Movie Search</button>
         </Link>
+        {/* If there is no currently signed in user, display Join and Login */}
         {!currentUser ? (
           <>
             <Link to="/signup">
@@ -44,6 +46,7 @@ export const Navbar = () => {
         ) : (
           ""
         )}
+        {/* If user is currently logged in, display watch list and logout button */}
         {currentUser ? (
           <>
             <Link to="/watch">

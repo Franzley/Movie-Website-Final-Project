@@ -3,16 +3,16 @@ import "firebase/compat/firestore";
 
 const getState = ({ getStore, getActions, setStore }) => {
   const db = firebase.firestore();
-  let watchListArr = [];
   return {
     store: {
       watchlist: [],
       watched: [],
     },
     actions: {
-      loadSomeData: () => {
-        // getCollection();
-      },
+      loadSomeData: () => {},
+
+      //Every new movie is sent to firestore
+      //Each new collection created is tied to current user, each stored movie gets unique ID
       addToWatchList: (currentUser, movie) => {
         const store = getStore();
         db.collection(currentUser)
@@ -26,35 +26,36 @@ const getState = ({ getStore, getActions, setStore }) => {
             console.error("Error adding document: ", error);
           });
       },
-      getFromWatchList: (currentUser) => {
+      //Grab movies in firestore and store in watchlist
+      loadWatchList: (currentUser) => {
         const store = getStore();
         db.collection(currentUser)
           .get()
           .then((querySnapshot) => {
-            setStore({ watchlist: [] });
-            watchListArr = []
+            const watchListArray = [];
             querySnapshot.forEach((doc) => {
-              //   setStore({watchlist: doc.data().movie});
-              watchListArr.push(doc.data().movie);
+              watchListArray.push({
+                //create a new object containing the current movie details and it's unique firestore ID
+                ...doc.data().movie,
+                collection_ID: doc.id,
+              });
             });
-            const individualMovie = watchListArr.map((item) => {
-              return item;
-            });
-            // setStore({ watchlist: individualMovie });
-            setStore({ watchlist: individualMovie });
-            console.log("StoreInfo: ", store);
-            // console.log("StoreInfo: ",store.watchlist)
+            //store each movie locally in flux store
+            setStore({ watchlist: watchListArray });
           });
       },
+      //Grab the unique ID corresponding to the movie that will be deleted
+      //Then call function to reload the watch list containing the updated values
       deleteFromWatchList: (currentUser, id) => {
         const store = getStore();
+        const actions = getActions();
         db.collection(currentUser)
           .doc(id)
           .delete()
           .then(() => {
             console.log("Document successfully deleted!");
           })
-          // .then(getCollection())
+          .then(actions.loadWatchList(currentUser))
           .catch((error) => {
             console.error("Error removing document: ", error);
           });

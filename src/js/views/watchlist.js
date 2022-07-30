@@ -1,29 +1,29 @@
-import React, { useState, useRef, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Card, Button, Alert, Form } from "react-bootstrap";
 import { useAuth } from "../firebase/AuthContext";
-import firebase from "firebase/compat/app";
-import "firebase/compat/firestore";
 import { Context } from "../store/appContext.js";
 import { ResultCard } from "../component/ResultCard";
 
 export const WatchList = () => {
-    const { currentUser, logout } = useAuth();
-    const [watchList, setWatchList] = useState([]);
-    const db = firebase.firestore();
+  //Get the instance of the current user
+  const { currentUser } = useAuth();
+  const [watchList, setWatchList] = useState([]);
+  //Access functions to use flux store
   const { store, actions } = useContext(Context);
 
+  //Call the function to load the watch list and pass the current user's email
   const getCollection = () => {
-    actions.getFromWatchList(currentUser.email)
+    actions.loadWatchList(currentUser.email);
   };
- 
+
+  //Load watch list on every reload
   useEffect(() => {
     getCollection();
   }, []);
 
+  //Listen to flux store on every reload and store values
   useEffect(() => {
-    setWatchList(store.watchlist)
-    console.log("storeValues", store)
-    console.log("New useeffect", store.watchlist)
+    setWatchList(store.watchlist);
   }, [store.watchlist]);
 
   return (
@@ -36,25 +36,24 @@ export const WatchList = () => {
           {currentUser.email}
         </Card.Body>
       </Card>
-      {/* testing */}
       <br></br>
       <h4>
-            {watchList.length === 0
-              ? "Add a movie"
-              : `Number of Movies Added: ${watchList.length}`}
-          </h4>
-          <hr></hr>
+        {watchList.length === 0
+          ? "Add a movie"
+          : `Number of Movies Added: ${watchList.length}`}
+      </h4>
+      <hr></hr>
       <div className="search-results-list">
-					{
-						<ul className="results">
-							{watchList.map(movie => (
-								<li key={movie.id}>
-									<ResultCard movie={movie} collection_ID={movie.collection_ID} />
-								</li>
-							))}
-						</ul>
-					}
-				</div>
+        {
+          <ul className="results">
+            {watchList.map((movie) => (
+              <li key={movie.id}>
+                <ResultCard movie={movie} collection_ID={movie.collection_ID} />
+              </li>
+            ))}
+          </ul>
+        }
+      </div>
     </>
   );
 };
