@@ -3,7 +3,7 @@ import "firebase/compat/firestore";
 
 const getState = ({ getStore, getActions, setStore }) => {
   const db = firebase.firestore();
-  const watchListArr = [];
+  let watchListArr = [];
   return {
     store: {
       watchlist: [],
@@ -32,6 +32,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           .get()
           .then((querySnapshot) => {
             setStore({ watchlist: [] });
+            watchListArr = []
             querySnapshot.forEach((doc) => {
               //   setStore({watchlist: doc.data().movie});
               watchListArr.push(doc.data().movie);
@@ -39,6 +40,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             const individualMovie = watchListArr.map((item) => {
               return item;
             });
+            // setStore({ watchlist: individualMovie });
             setStore({ watchlist: individualMovie });
             console.log("StoreInfo: ", store);
             // console.log("StoreInfo: ",store.watchlist)
