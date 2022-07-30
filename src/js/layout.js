@@ -22,7 +22,7 @@ const Layout = () => {
 	const basename = process.env.BASENAME || "";
 
 	return (
-		<div>
+		<div className="bigDiv">
 			<BrowserRouter basename={basename}>
 				<AuthProvider>
 					<ScrollToTop>
