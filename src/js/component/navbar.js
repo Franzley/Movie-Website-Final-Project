@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useAuth } from "../firebase/AuthContext";
 import { useHistory } from "react-router-dom";
-import logo from "/workspace/Movie-Website-Final-Project/src/images/logo.png";
+import logo from "../../images/logo.png";
 
 export const Navbar = () => {
   const [error, setError] = useState("");
