@@ -1,17 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
 .mainHomeScreen {
   display: flex;
-  background: #c61019;
+  background: radial-gradient(#d66167, #c61019);
+  background-repeat: no-repeat;
 }
 .tv {
-  width: 530px;
+  width: 700px;
   padding-top: 60px;
 }
 .leftHome {
-  margin-top: 130px;
+  margin-top: 170px;
   margin-left: 60px;
 }
 .leftHome h1 {
   font-size: 70px;
+  font-family: 'Archivo Black', sans-serif;
 }
 .middleHome {
   background: black;
@@ -29,9 +33,9 @@
 .topMovies {
   font-size: 40px;
 }
-.results {
+.top-results {
   width: 100%;
+  display: inline-flex;
+  overflow-x: scroll;
   list-style: none;
-  display: flex;
-  flex-wrap: wrap;
 }

@@ -30,7 +30,7 @@ export const SearchResults = () => {
 	return (
 		<div className="container">
 			<div className="search-page">
-				<h1>Search Results</h1>
+				<h1>MOVIE SEARCH</h1>
 				{/* search box */}
 				<div className="input-wrapper">
 					<input className="input-box"
