@@ -7,7 +7,7 @@ import { Context } from "../store/appContext.js";
 import { useAuth } from "../firebase/AuthContext";
 
 export const ResultCard = (props) => {
-  const { actions } = useContext(Context);
+  const { store, actions } = useContext(Context);
   const { currentUser } = useAuth();
   const movie = props.movie;
 
@@ -60,13 +60,24 @@ export const ResultCard = (props) => {
           </h4>
         </div>
         {/* Selected movie to be added to watch list */}
-        <div className="controls">
+        <div className={currentUser ? "controls" : "d-none"}>
           <button className="btn btn-primary" onClick={addToWatchList}>
             Add to Watchlist
           </button>
         </div>
         {/* Remove selected movie from the watch list */}
-        <div className="controls">
+        <div
+        //If props.collection_ID exists in the flux store, display remove button, else visibility hidden
+          className={
+            store.watchlist.some((e) => {
+              if (e.collection_ID === props.collection_ID) {
+                return true;
+              }
+            })
+              ? "controls"
+              : "d-none"
+          }
+        >
           <button
             className="btn btn-danger"
             onClick={() => {
