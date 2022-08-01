@@ -20,3 +20,18 @@
 .vote-average {
   font-size: 20px;
 }
+.poster-wrapper img {
+  height: 300px;
+  width: 200px;
+}
+.filler-poster {
+  height: 300px;
+  width: 200px;
+  background-color: lightgray;
+  display: flex;
+  justify-content: center;
+  padding-top: 67%;
+}
+.info {
+  height: 200px;
+}
