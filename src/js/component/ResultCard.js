@@ -60,14 +60,25 @@ export const ResultCard = (props) => {
           </h4>
         </div>
         {/* Selected movie to be added to watch list */}
-        <div className={currentUser ? "controls" : "d-none"}>
+        <div
+          className={
+            currentUser &&
+            !store.watchlist.some((e) => {
+              if (e.collection_ID === props.collection_ID) {
+                return true;
+              }
+            })
+              ? "controls"
+              : "d-none"
+          }
+        >
           <button className="btn btn-primary" onClick={addToWatchList}>
             Add to Watchlist
           </button>
         </div>
         {/* Remove selected movie from the watch list */}
         <div
-        //If props.collection_ID exists in the flux store, display remove button, else visibility hidden
+          //If props.collection_ID exists in the flux store, display remove button, else visibility hidden
           className={
             store.watchlist.some((e) => {
               if (e.collection_ID === props.collection_ID) {
