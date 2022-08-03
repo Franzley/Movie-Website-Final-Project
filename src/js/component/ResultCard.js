@@ -17,7 +17,10 @@ export const ResultCard = (props) => {
   }
   //Calls function to remove selected movie from watch list
   function deleteWatchList(currentUser, id) {
-    actions.deleteFromWatchList(currentUser, id);
+    actions.deleteFromDatabase(currentUser, id);
+  }
+  function addToWatched(currentUser, id) {
+    actions.addToWatched(currentUser, id);
   }
 
   //determines what face appears next to the rating
@@ -62,8 +65,14 @@ export const ResultCard = (props) => {
         {/* Selected movie to be added to watch list */}
         <div
           className={
+            // If user is signed in and movie is not stored in watchlist, display add to watchlist
             currentUser &&
             !store.watchlist.some((e) => {
+              if (e.collection_ID === props.collection_ID) {
+                return true;
+              }
+            }) &&
+            !store.watched.some((e) => {
               if (e.collection_ID === props.collection_ID) {
                 return true;
               }
@@ -78,9 +87,14 @@ export const ResultCard = (props) => {
         </div>
         {/* Remove selected movie from the watch list */}
         <div
-          //If props.collection_ID exists in the flux store, display remove button, else visibility hidden
+          // If the movie is neither in watchlist or watched, remove button is hidden
           className={
             store.watchlist.some((e) => {
+              if (e.collection_ID === props.collection_ID) {
+                return true;
+              }
+            }) ||
+            store.watched.some((e) => {
               if (e.collection_ID === props.collection_ID) {
                 return true;
               }
@@ -96,6 +110,29 @@ export const ResultCard = (props) => {
             }}
           >
             Remove
+          </button>
+        </div>
+        {/* Add to finished movies */}
+        <div
+          className={
+            // If user is signed in and movie is stored in watchlist, display add to watched
+            currentUser &&
+            store.watchlist.some((e) => {
+              if (e.collection_ID === props.collection_ID) {
+                return true;
+              }
+            })
+              ? "controls"
+              : "d-none"
+          }
+        >
+          <button
+            className={"btn btn-primary"}
+            onClick={() => {
+              addToWatched(currentUser.email, props.collection_ID);
+            }}
+          >
+            Add to Watched
           </button>
         </div>
       </div>
