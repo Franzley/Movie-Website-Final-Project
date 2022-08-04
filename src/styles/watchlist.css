@@ -1,0 +1,15 @@
+/* .movie-inputs{
+    opacity: 0.4;
+}
+.clay{
+    --clay-background: #f76d6d;
+  --clay-border-radius: 1rem;
+      --clay-shadow-outset: 4px 4px 8px 0 rgba(0,0,0,.3);
+      --clay-shadow-inset-primary: -8px -8px 8px 0 rgba(0,0,0,0.2);
+      --clay-shadow-inset-secondary: 8px 8px 8px 0 hsla(0,0%,100%,0.4);
+    transform: translate3d(0,0,0);
+      backface-visibility: hidden;
+  }
+  .clay:active {
+    transform:scale(0.98) translate3d(0,0,0);
+  } */
