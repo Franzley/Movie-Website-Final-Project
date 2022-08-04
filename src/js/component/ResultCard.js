@@ -48,7 +48,7 @@ export const ResultCard = (props) => {
           />
         ) : (
           // blank image incase there is no movie poster for a specific movie
-          <div className="filler-poster"></div>
+          <div className="filler-poster">NO IMAGE AVAILABLE</div>
         )}
       </div>
       {/* movie info */}

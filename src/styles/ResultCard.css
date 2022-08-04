@@ -10,7 +10,6 @@
   padding: 10px;
   border-radius: 0px 0px 15px 15px;
 }
-
 .title {
   font-size: 15px;
 }
@@ -21,10 +20,21 @@
   font-size: 20px;
 }
 
-/* .movie-inputs{
-  opacity: 0.4;
-} */
-
+.poster-wrapper img {
+  height: 300px;
+  width: 200px;
+}
+.filler-poster {
+  height: 300px;
+  width: 200px;
+  background-color: lightgray;
+  display: flex;
+  justify-content: center;
+  padding-top: 67%;
+}
+.info {
+  height: 200px;
+}
 .clay {
   background: var(--clay-background, rgb(181, 94, 111));
   border-radius: var(--clay-border-radius, 32px);
@@ -49,3 +59,4 @@
     inset -8px -8px 12px 0 rgba(0, 0, 0, .25), /* Dark inset shadow */
     inset 8px 8px 12px 0 rgba(255, 255, 255, 0.4); /* Light inset shadow */
 }
+
