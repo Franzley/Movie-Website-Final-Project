@@ -3,6 +3,7 @@ import { Card, Button, Alert, Form } from "react-bootstrap";
 import { useAuth } from "../firebase/AuthContext";
 import { Context } from "../store/appContext.js";
 import { ResultCard } from "../component/ResultCard";
+import "/workspace/Movie-Website-Final-Project/src/styles/watchlist.css"
 
 export const WatchList = () => {
   //Get the instance of the current user

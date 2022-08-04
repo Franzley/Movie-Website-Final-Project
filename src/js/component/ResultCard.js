@@ -36,46 +36,48 @@ export const ResultCard = (props) => {
   return (
     <div className="result-card">
       {/* movie poster image*/}
-      <div className="poster-wrapper">
-        {movie.poster_path ? (
-          <img
-            src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-            alt={`${movie.title}`}
-          />
-        ) : (
-          // blank image incase there is no movie poster for a specific movie
-          <div className="filler-poster"></div>
-        )}
-      </div>
-      {/* movie info */}
-      <div className="info">
-        <div className="header">
-          <h4 className="vote-average">
-            {rateFace()} {movie.vote_average}
-          </h4>
-          <h3 className="title">{movie.title}</h3>
-          {/* substring gives us only the 4 year numbers of the release date. if no date, shows "-" */}
-          <h4 className="release-date">
-            {movie.release_date ? movie.release_date.substring(0, 4) : "-"}
-          </h4>
+      <div className="movie-info-box">
+        <div className="poster-wrapper">
+          {movie.poster_path ? (
+            <img
+              src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+              alt={`${movie.title}`}
+            />
+          ) : (
+            // blank image incase there is no movie poster for a specific movie
+            <div className="filler-poster"></div>
+          )}
+        </div>
+        {/* movie info */}
+        <div className="info">
+          <div className="header">
+            <h4 className="vote-average">
+              {rateFace()} {movie.vote_average}
+            </h4>
+            <h3 className="title">{movie.title}</h3>
+            {/* substring gives us only the 4 year numbers of the release date. if no date, shows "-" */}
+            <h4 className="release-date">
+              {movie.release_date ? movie.release_date.substring(0, 4) : "-"}
+            </h4>
+          </div>
+          <div className="controls">
+            <button className="btn btn-primary" onClick={addToWatchList}>
+              Add to Watchlist
+            </button>
+          </div>
+          {/* Remove selected movie from the watch list */}
+          <div className="controls">
+            <button
+              className="btn btn-danger"
+              onClick={() => {
+                deleteWatchList(currentUser.email, props.collection_ID);
+              }}
+            >
+              Remove
+            </button>
+          </div>
         </div>
         {/* Selected movie to be added to watch list */}
-        <div className="controls">
-          <button className="btn btn-primary" onClick={addToWatchList}>
-            Add to Watchlist
-          </button>
-        </div>
-        {/* Remove selected movie from the watch list */}
-        <div className="controls">
-          <button
-            className="btn btn-danger"
-            onClick={() => {
-              deleteWatchList(currentUser.email, props.collection_ID);
-            }}
-          >
-            Remove
-          </button>
-        </div>
       </div>
     </div>
   );
