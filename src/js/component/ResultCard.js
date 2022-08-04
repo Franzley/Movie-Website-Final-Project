@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import "../../styles/ResultCard.css";
 import excellent from "../../images/excellent.png";
 import good from "../../images/good.png";
@@ -14,6 +14,7 @@ export const ResultCard = (props) => {
   //Calls function to add selected movie to watch list
   function addToWatchList() {
     actions.addToWatchList(currentUser.email, movie);
+    actions.loadDatabase(currentUser.email);
   }
   //Calls function to remove selected movie from watch list
   function deleteWatchList(currentUser, id) {
@@ -37,7 +38,7 @@ export const ResultCard = (props) => {
   };
 
   return (
-    <div className="result-card">
+    <div className="result-card position-relative">
       {/* movie poster image*/}
       <div className="poster-wrapper">
         {movie.poster_path ? (
@@ -62,18 +63,19 @@ export const ResultCard = (props) => {
             {movie.release_date ? movie.release_date.substring(0, 4) : "-"}
           </h4>
         </div>
-        {/* Selected movie to be added to watch list */}
+
+        {/* WATCH LIST */}
         <div
           className={
             // If user is signed in and movie is not stored in watchlist, display add to watchlist
             currentUser &&
             !store.watchlist.some((e) => {
-              if (e.collection_ID === props.collection_ID) {
+              if (e.original_title === movie.original_title) {
                 return true;
               }
             }) &&
             !store.watched.some((e) => {
-              if (e.collection_ID === props.collection_ID) {
+              if (e.original_title === movie.original_title) {
                 return true;
               }
             })
@@ -81,11 +83,15 @@ export const ResultCard = (props) => {
               : "d-none"
           }
         >
-          <button className="btn btn-primary" onClick={addToWatchList}>
-            Add to Watchlist
+          <button
+            className="circle-watchlist position-absolute top-0 start-0"
+            onClick={addToWatchList}
+          >
+            <i className="fas fa-plus"></i>
           </button>
         </div>
-        {/* Remove selected movie from the watch list */}
+
+        {/* REMOVE */}
         <div
           // If the movie is neither in watchlist or watched, remove button is hidden
           className={
@@ -104,15 +110,16 @@ export const ResultCard = (props) => {
           }
         >
           <button
-            className="btn btn-danger"
+            className="clay"
             onClick={() => {
               deleteWatchList(currentUser.email, props.collection_ID);
             }}
           >
-            Remove
+            <i className="fas fa-trash-alt"></i>
           </button>
         </div>
-        {/* Add to finished movies */}
+
+        {/* COMPLETED MOVIES */}
         <div
           className={
             // If user is signed in and movie is stored in watchlist, display add to watched
@@ -127,12 +134,14 @@ export const ResultCard = (props) => {
           }
         >
           <button
-            className={"btn btn-primary"}
+            className={
+              "position-absolute top-0 end-0 circle-watched"
+            }
             onClick={() => {
               addToWatched(currentUser.email, props.collection_ID);
             }}
           >
-            Add to Watched
+            <i className="fas fa-check"></i>
           </button>
         </div>
       </div>
