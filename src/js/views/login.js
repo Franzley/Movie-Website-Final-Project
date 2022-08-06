@@ -28,31 +28,50 @@ export const Login = () => {
 
   return (
     <>
-      <Card>
-        <Card.Body>
-          <h2 className="text-center mb-4">Log In</h2>
-          {error && <Alert variant="danger">{error}</Alert>}
-          <Form onSubmit={handleSubmit}>
-            <FormGroupFields
-              id="email"
-              label="Email"
-              type="email"
-              refs={emailRef}
-            />
-            <FormGroupFields
-              id="password"
-              label="Password"
-              type="password"
-              refs={passwordRef}
-            />
-            <Button disabled={loading} className="w-100 mt-3" type="submit">
-              Log In
-            </Button>
-          </Form>
-        </Card.Body>
-      </Card>
-      <div className="w-100 text-center mt-2">
-        Need an account? <Link to="/signup">Sign Up</Link>
+      <div className="login-card">
+        <Card>
+          <div className="login-card-body">
+            <Card.Body>
+              <h2 className="text-center login-title mb-4">Log In</h2>
+              {error && <Alert variant="danger">{error}</Alert>}
+              <div className="input-fields">
+                <Form onSubmit={handleSubmit}>
+                  <div className="email-input">
+                    <FormGroupFields
+                      id="email"
+                      label="Email"
+                      placeholder="Email"
+                      type="email"
+                      refs={emailRef}
+                    />
+                  </div>
+                  <div>
+                    <FormGroupFields
+                      className="password-input"
+                      id="password"
+                      label="Password"
+                      placeholder="Password"
+                      type="password"
+                      refs={passwordRef}
+                    />
+                  </div>
+                  <Button
+                    disabled={loading}
+                    className=" login-button w-100 mt-3"
+                    type="submit"
+                  >
+                    Log In
+                  </Button>
+                </Form>
+              </div>
+            </Card.Body>
+          </div>
+          <div className=" need-account w-100 text-center mt-2">
+            Need an account? <Link to="/signup">Sign Up</Link>
+          </div>
+          <div className="ellipse-14"></div>
+          <div className="ellipse-15"></div>
+        </Card>
       </div>
     </>
   );
