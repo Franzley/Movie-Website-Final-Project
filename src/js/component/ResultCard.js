@@ -40,6 +40,7 @@ export const ResultCard = (props) => {
   return (
     <div className="result-card position-relative">
       {/* movie poster image*/}
+ <div className="movie-info-box">
       <div className="poster-wrapper">
         {movie.poster_path ? (
           <img
@@ -143,7 +144,9 @@ export const ResultCard = (props) => {
           >
             <i className="fas fa-check"></i>
           </button>
+           </div>
         </div>
+        {/* Selected movie to be added to watch list */}
       </div>
     </div>
   );
