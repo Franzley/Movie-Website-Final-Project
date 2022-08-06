@@ -42,6 +42,7 @@ export const ResultCard = (props) => {
       {/* movie poster image*/}
  <div className="movie-info-box">
       <div className="poster-wrapper">
+      <button className="details">SHOW DETAILS</button>
         {movie.poster_path ? (
           <img
             src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
@@ -52,6 +53,7 @@ export const ResultCard = (props) => {
           <div className="filler-poster">NO IMAGE AVAILABLE</div>
         )}
       </div>
+      
       {/* movie info */}
       <div className="info">
         <div className="header">

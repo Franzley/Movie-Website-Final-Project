@@ -31,7 +31,28 @@
 .poster-wrapper img {
   height: 300px;
   width: 200px;
+  position: relative;
 }
+.details {
+  position: absolute;
+ 
+  margin: 144px 38px;
+  border-style: none;
+  background: none;
+  color: white;
+  font-weight: 500;
+  display: none;
+}
+
+.poster-wrapper img:hover{
+  opacity: 50%;
+  cursor:pointer;
+}
+
+.poster-wrapper:hover .details{
+  display: block;
+}
+
 .filler-poster {
   height: 300px;
   width: 200px;
