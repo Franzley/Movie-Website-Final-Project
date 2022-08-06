@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../firebase/AuthContext";
 import { useHistory } from "react-router-dom";
 import "/workspace/Movie-Website-Final-Project/src/styles/login.css"
+import logo from "../../images/logo.png";
 
 export const Navbar = () => {
   const [error, setError] = useState("");
@@ -24,7 +25,7 @@ export const Navbar = () => {
   return (
     <nav className="navbar navbar-light bg-light mb-3">
       <Link to="/">
-        <span className="navbar-brand mb-0 h1">REEL REVIEWS</span>
+        <span className="navbar-brand mb-0 h1"><img src={logo} alt="Our Ranking System" /></span>
       </Link>
       <div className="ml-auto">
         <form>

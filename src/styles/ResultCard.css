@@ -18,7 +18,6 @@
   padding: 10px;
   border-radius: 0px 0px 15px 15px;
 }
-
 .title {
   font-size: 15px;
 }
@@ -28,3 +27,44 @@
 .vote-average {
   font-size: 20px;
 }
+
+.poster-wrapper img {
+  height: 300px;
+  width: 200px;
+}
+.filler-poster {
+  height: 300px;
+  width: 200px;
+  background-color: lightgray;
+  display: flex;
+  justify-content: center;
+  padding-top: 67%;
+}
+.info {
+  height: 200px;
+}
+.clay {
+  background: var(--clay-background, rgb(181, 94, 111));
+  border-radius: var(--clay-border-radius, 32px);
+  box-shadow: 
+    var(--clay-shadow-outset, 8px 8px 16px 0 rgba(0, 0, 0, 0.25)),
+    inset var(--clay-shadow-inset-primary, -8px -8px 12px 0 rgba(0, 0, 0, 0.25)),
+    inset var(--clay-shadow-inset-secondary, 8px 8px 12px 0 rgba(255, 255, 255, 0.4));
+}
+.circle-watchlist {
+  background: rgb(55, 233, 6);
+  border-radius: 48px;
+  box-shadow: 
+    8px 8px 16px 0 rgba(0, 0, 0, .25), /* Outset shadow */
+    inset -8px -8px 12px 0 rgba(0, 0, 0, .25), /* Dark inset shadow */
+    inset 8px 8px 12px 0 rgba(255, 255, 255, 0.4); /* Light inset shadow */
+}
+.circle-watched {
+  background: rgb(255, 251, 8);
+  border-radius: 48px;
+  box-shadow: 
+    8px 8px 16px 0 rgba(0, 0, 0, .25), /* Outset shadow */
+    inset -8px -8px 12px 0 rgba(0, 0, 0, .25), /* Dark inset shadow */
+    inset 8px 8px 12px 0 rgba(255, 255, 255, 0.4); /* Light inset shadow */
+}
+
