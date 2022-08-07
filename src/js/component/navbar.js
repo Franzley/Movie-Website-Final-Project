@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useAuth } from "../firebase/AuthContext";
 import { useHistory } from "react-router-dom";
-import "/workspace/Movie-Website-Final-Project/src/styles/login.css"
+import "../../styles/login.css";
 import logo from "../../images/logo.png";
 
 export const Navbar = () => {
@@ -25,12 +25,11 @@ export const Navbar = () => {
   return (
     <nav className="navbar navbar-light bg-light mb-3">
       <Link to="/">
-        <span className="navbar-brand mb-0 h1"><img src={logo} alt="Our Ranking System" /></span>
+        <span className="navbar-brand mb-0 h1">
+          <img src={logo} alt="Our Ranking System" />
+        </span>
       </Link>
       <div className="ml-auto">
-        <form>
-          <input placeholder="Search" />
-        </form>
         {/* Button to search for movies */}
         <Link to="/search">
           <button className="btn btn-danger m-1">Movie Search</button>
