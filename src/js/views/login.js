@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Card, Button, Form, Alert } from "react-bootstrap";
-import FormGroupFields from "../component/FormGroupFields.jsx";
+import InputFields from "../component/InputFields.jsx";
 import { useAuth } from "../firebase/AuthContext.js";
 import { Link, useHistory } from "react-router-dom";
 
@@ -35,9 +35,9 @@ export const Login = () => {
               <h2 className="text-center login-title mb-4">Log In</h2>
               {error && <Alert variant="danger">{error}</Alert>}
               <div className="input-fields">
-                <Form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit}>
                   <div className="email-input">
-                    <FormGroupFields
+                    <InputFields
                       id="email"
                       label="Email"
                       placeholder="Email"
@@ -46,7 +46,7 @@ export const Login = () => {
                     />
                   </div>
                   <div>
-                    <FormGroupFields
+                    <InputFields
                       className="password-input"
                       id="password"
                       label="Password"
@@ -62,7 +62,7 @@ export const Login = () => {
                   >
                     Log In
                   </Button>
-                </Form>
+                </form>
               </div>
             </Card.Body>
           </div>

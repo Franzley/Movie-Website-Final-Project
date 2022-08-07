@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Card, Button, Form, Alert } from "react-bootstrap";
-import FormGroupFields from "../component/FormGroupFields.jsx";
+import InputFields from "../component/InputFields.jsx";
 import { useAuth } from "../firebase/AuthContext.js";
 import { Link, useHistory } from "react-router-dom";
 
@@ -42,29 +42,29 @@ export const Signup = () => {
         <Card.Body>
           <h2 className="text-center mb-4">Sign Up</h2>
           {error && <Alert variant="danger">{error}</Alert>}
-          <Form onSubmit={handleSubmit}>
-            <FormGroupFields
+          <form onSubmit={handleSubmit}>
+            <InputFields
               id="email"
-              label="Email"
+              placeholder="Email"
               type="email"
               refs={emailRef}
             />
-            <FormGroupFields
+            <InputFields
               id="password"
-              label="Password"
+              placeholder="Password"
               type="password"
               refs={passwordRef}
             />
-            <FormGroupFields
+            <InputFields
               id="password-confirm"
-              label="Password Confirm"
+              placeholder="Password Confirm"
               type="password"
               refs={passwordConfirmRef}
             />
             <Button disabled={loading} className="w-100 mt-3" type="submit">
               Sign Up
             </Button>
-          </Form>
+          </form>
         </Card.Body>
       </Card>
       <div className="w-100 text-center mt-2">
