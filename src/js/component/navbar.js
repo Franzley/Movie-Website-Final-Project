@@ -35,6 +35,9 @@ export const Navbar = () => {
         <Link to="/search">
           <button className="btn btn-danger m-1">Movie Search</button>
         </Link>
+        <Link to="/random">
+          <button className="btn btn-danger m-1">Random Movie</button>
+        </Link>
         {/* If there is no currently signed in user, display Join and Login */}
         {!currentUser ? (
           <>

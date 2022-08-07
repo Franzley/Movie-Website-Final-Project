@@ -8,6 +8,7 @@ import { Signup } from "./views/signup";
 import { Login } from "./views/login";
 import { SearchResults } from "./views/searchresults";
 import { WatchList } from "./views/watchlist";
+import { RandomMovie } from "./views/randomMovie"
 
 import injectContext from "./store/appContext";
 import PrivateRoute from "./component/PrivateRoute";
@@ -39,6 +40,9 @@ const Layout = () => {
 							</Route>
 							<Route exact path="/search">
 								<SearchResults />
+							</Route>
+							<Route exact path="/random">
+								<RandomMovie />
 							</Route>
 							<PrivateRoute exact path="/watch" component={WatchList} />
 							<Route>
