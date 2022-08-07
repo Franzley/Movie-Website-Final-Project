@@ -37,13 +37,24 @@ export const ResultCard = (props) => {
     }
   };
 
+  const poster = () => {
+    if (movie.poster_path) {
+      return (<img
+      src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+      alt={`${movie.title}`}
+    />)
+    }
+    else {return <div className="filler-poster">NO IMAGE AVAILABLE</div>}
+  }
+
   return (
     <div className="result-card position-relative">
       {/* movie poster image*/}
  <div className="movie-info-box">
       <div className="poster-wrapper">
       <button className="details">SHOW DETAILS</button>
-        {movie.poster_path ? (
+      {poster()}
+        {/* {movie.poster_path ? (
           <img
             src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
             alt={`${movie.title}`}
@@ -51,7 +62,7 @@ export const ResultCard = (props) => {
         ) : (
           // blank image incase there is no movie poster for a specific movie
           <div className="filler-poster">NO IMAGE AVAILABLE</div>
-        )}
+        )} */}
       </div>
       
       {/* movie info */}
