@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
+.randomMoviePageBackground {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.randomPageTitle {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 50px;
+}
+.chooseGenre {
+    font-family: 'Archivo Black', sans-serif;
+    padding: 5px;
+    font-size: 16px;
+}
