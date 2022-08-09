@@ -41,10 +41,10 @@ export const Navbar = () => {
         {!currentUser ? (
           <>
             <Link to="/signup">
-              <button className="btn btn-danger">Join Now</button>
+              <button className="btn btn-danger m-1">Join Now</button>
             </Link>
             <Link to="/login">
-              <button className="btn btn-danger">Login</button>
+              <button className="btn btn-danger m-1">Login</button>
             </Link>
           </>
         ) : (

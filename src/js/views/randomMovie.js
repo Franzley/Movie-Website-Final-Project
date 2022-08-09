@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { ResultCard } from '../component/ResultCard'
+import "../../styles/randomMovie.css"
 
 export const RandomMovie = ({movie}) => {
   const [movieGenre, setMovieGenre] = useState([]);
@@ -41,17 +42,18 @@ useEffect(() => {
 }, []);
 
   return (
-    <div>
-    <div>RANDOM MOVIE GENERATOR</div>
+    <div className='randomMoviePageBackground'>
+    <div className='randomPageTitle'> 🍿 RANDOM MOVIE GENERATOR 🍿 </div>
     <form className="genreForm">
-      <label>Choose a genre:</label>
+      <label className='chooseGenre'>CHOOSE A GENRE:</label>
       <select name="genres" id="genres" onChange={e => setSelectedGenre(e.target.value)}>
       {movieGenre.map((genre) => (
                  <option value={genre.id} key={genre.id}>{genre.name}</option>
                 ))}
       </select>
+      
     </form>
-    <button className="playBtn" onClick={getMovies}>Let's Play!</button>
+    <button className="btn btn-danger m-3" onClick={getMovies}>Let's Play!</button>
     <ResultCard movie={movieInfo}/>
     </div>
   )
