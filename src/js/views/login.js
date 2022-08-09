@@ -4,6 +4,7 @@ import InputFields from "../component/InputFields.jsx";
 import { useAuth } from "../firebase/AuthContext.js";
 import { Link, useHistory } from "react-router-dom";
 
+
 export const Login = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -28,50 +29,59 @@ export const Login = () => {
 
   return (
     <>
-      <div className="login-card">
-        <Card>
-          <div className="login-card-body">
-            <Card.Body>
-              <h2 className="text-center login-title mb-4">Log In</h2>
-              {error && <Alert variant="danger">{error}</Alert>}
-              <div className="input-fields">
-                <form onSubmit={handleSubmit}>
-                  <div className="email-input">
-                    <InputFields
-                      id="email"
-                      label="Email"
-                      placeholder="Email"
-                      type="email"
-                      refs={emailRef}
-                    />
-                  </div>
-                  <div>
-                    <InputFields
-                      className="password-input"
-                      id="password"
-                      label="Password"
-                      placeholder="Password"
-                      type="password"
-                      refs={passwordRef}
-                    />
-                  </div>
-                  <Button
-                    disabled={loading}
-                    className=" login-button w-100 mt-3"
-                    type="submit"
-                  >
-                    Log In
-                  </Button>
-                </form>
-              </div>
-            </Card.Body>
-          </div>
-          <div className=" need-account w-100 text-center mt-2">
-            Need an account? <Link to="/signup">Sign Up</Link>
-          </div>
-          <div className="ellipse-14"></div>
-          <div className="ellipse-15"></div>
-        </Card>
+      <div className="card-background">
+        <div className="login-card">
+          <Card>
+            <div className="login-card-body">
+              <Card.Body>
+                <h2 className="text-center login-title mb-4">Log In</h2>
+                {error && <Alert variant="danger">{error}</Alert>}
+                <div className="login-input-fields">
+                  <form onSubmit={handleSubmit}>
+                    <div className="login-email-input">
+                      <InputFields
+                        id="email"
+                        label="Email"
+                        placeholder="Email"
+                        type="email"
+                        refs={emailRef}
+                      />
+                    </div>
+                    <div>
+                      <InputFields
+                        className="login-password-input"
+                        id="password"
+                        label="Password"
+                        placeholder="Password"
+                        type="password"
+                        refs={passwordRef}
+                      />
+                    </div>
+                    <Button
+                      disabled={loading}
+                      className=" login-button w-100 mt-3"
+                      type="submit"
+                    >
+                      Log In
+                    </Button>
+                  </form>
+                </div>
+                <div className=" need-account w-100 text-center mt-2">
+                  Need an account? <Link to="/signup">Sign Up</Link>
+                </div>
+              </Card.Body>
+            </div>
+          </Card>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+
+        </div>
       </div>
     </>
   );

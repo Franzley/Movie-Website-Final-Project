@@ -3,6 +3,7 @@ import { Card, Button, Form, Alert } from "react-bootstrap";
 import InputFields from "../component/InputFields.jsx";
 import { useAuth } from "../firebase/AuthContext.js";
 import { Link, useHistory } from "react-router-dom";
+import "../../styles/signup.css";
 
 export const Signup = () => {
   const emailRef = useRef();
@@ -38,38 +39,55 @@ export const Signup = () => {
 
   return (
     <>
-      <Card>
-        <Card.Body>
-          <h2 className="text-center mb-4">Sign Up</h2>
-          {error && <Alert variant="danger">{error}</Alert>}
-          <form onSubmit={handleSubmit}>
-            <InputFields
-              id="email"
-              placeholder="Email"
-              type="email"
-              refs={emailRef}
-            />
-            <InputFields
-              id="password"
-              placeholder="Password"
-              type="password"
-              refs={passwordRef}
-            />
-            <InputFields
-              id="password-confirm"
-              placeholder="Password Confirm"
-              type="password"
-              refs={passwordConfirmRef}
-            />
-            <Button disabled={loading} className="w-100 mt-3" type="submit">
-              Sign Up
-            </Button>
-          </form>
-        </Card.Body>
-      </Card>
-      <div className="w-100 text-center mt-2">
-        Already have an account? <Link to="/login">Log In</Link>
+      <div className="signup-card">
+        <Card>
+          <div className="signup-card-body">
+            <Card.Body>
+              <h2 className="signup-title text-center mb-4">Sign Up</h2>
+              {error && <Alert variant="danger">{error}</Alert>}
+              <div className="signup-input-fields">
+                <form onSubmit={handleSubmit}>
+                  <InputFields
+                    className="signup-email-input"
+                    id="email"
+                    placeholder="Email"
+                    type="email"
+                    refs={emailRef}
+                  />
+                  <InputFields
+                    className="signup-password-input"
+                    id="password"
+                    placeholder="Password"
+                    type="password"
+                    refs={passwordRef}
+                  />
+                  <InputFields
+                    className="signup-password-confirm"
+                    id="password-confirm"
+                    placeholder="Password Confirm"
+                    type="password"
+                    refs={passwordConfirmRef}
+                  />
+
+                  <Button
+                    disabled={loading}
+                    className="signup-button w-100 mt-3"
+                    type="submit"
+                  >
+                    Sign Up
+                  </Button>
+                </form>
+              </div>
+            </Card.Body>
+            <div className=" have-account w-100 text-center mt-2">
+              Already have an account? <Link className="signup"to="/login">Log In</Link>
+            </div>
+          </div>
+          <div className="ellipse-14"></div>
+          <div className="ellipse-15"></div>
+        </Card>
       </div>
     </>
   );
+  
 };
