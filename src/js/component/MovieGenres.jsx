@@ -2,8 +2,9 @@ import React from "react";
 import { ResultCard } from "./ResultCard";
 import "../../styles/home.css";
 const MovieGenres = (props) => {
-  const movieGenre = props.movieGen;
+  const movieGenre = props.topMovieGenreList;
 
+  //return listing of movie ranking i.e Top Movies of All Time or Top Movies Today, etc
   return (
     <>
       <p className="topMovies">{props.title}</p>

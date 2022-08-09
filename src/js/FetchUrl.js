@@ -1,3 +1,5 @@
+//list of urls to fetch
+
 export const FetchUrl = [
   fetch(
     "https://api.themoviedb.org/3/movie/top_rated?api_key=55e81c3707b1511daf33d639a483655c&language=en-US&page=1"

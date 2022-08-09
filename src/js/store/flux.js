@@ -1,5 +1,6 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
+import movieTrailer from "movie-trailer";
 
 const getState = ({ getStore, getActions, setStore }) => {
   const db = firebase.firestore();
@@ -7,6 +8,7 @@ const getState = ({ getStore, getActions, setStore }) => {
     store: {
       watchlist: [],
       watched: [],
+      trailer: "",
     },
     actions: {
       loadSomeData: () => {},
@@ -29,7 +31,6 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       //Grab movies in firestore and store in watchlist
       loadDatabase: (currentUser) => {
-
         db.collection(currentUser)
           .get()
           .then((querySnapshot) => {
@@ -101,6 +102,17 @@ const getState = ({ getStore, getActions, setStore }) => {
           .catch((error) => {
             console.error("Error removing document: ", error);
           });
+      },
+      getMovieTrailer: (id) => {
+        async function trailerMovie() {
+          //wait for fetch promise to complete then set the response to trailer setstore
+          //search trailer by the movie's id located in The Movie DataBase
+          await movieTrailer(null, { tmdbId: id }).then((response) => {
+            setStore({ trailer: response });
+          });
+        }
+        //Call function
+        trailerMovie();
       },
     },
   };

@@ -10,6 +10,7 @@ export const WatchList = () => {
   const { currentUser } = useAuth();
   const [watchList, setWatchList] = useState([]);
   const [watched, setWatched] = useState([]);
+
   //Access functions to use flux store
   const { store, actions } = useContext(Context);
 
@@ -48,6 +49,7 @@ export const WatchList = () => {
         </Card>
         <br></br>
         <h4>{watchList.length === 0 ? "Add a movie" : "Want to Watch"}</h4>
+        {/* List of movies to be watched */}
         <hr></hr>
         <div className="search-results-list">
           {
@@ -65,6 +67,7 @@ export const WatchList = () => {
         </div>
       </div>
 
+      {/* List of already completed movies */}
       <div>
         <Card>
           <Card.Body>

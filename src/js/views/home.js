@@ -20,8 +20,9 @@ export const Home = () => {
   });
   const genre = Object.keys(movieGenre);
 
+  //assign property names of movieGenre into a list of objects under genres
   const topMoviesGenres = [
-    { genres: genre[0], title: "Top Movies of All Time" },
+    { genres: genre[0], title: "Top Movies of All Time" }, //i.e genre[0] == topMoviesAllTime //genre[0] == topMoviesAllTime
     { genres: genre[1], title: "Top Movies Today" },
     { genres: genre[2], title: "Top Movies This Week" },
     { genres: genre[3], title: "Popular Action Movies" },
@@ -31,9 +32,10 @@ export const Home = () => {
     { genres: genre[7], title: "Popular Dramas" },
     { genres: genre[8], title: "Popular Horror Movies" },
     { genres: genre[9], title: "Popular Romance Movies" },
-    { genres: genre[10], title: "Popular Sci-Fi Movies" },
+    { genres: genre[10], title: "Popular Sci-Fi Movies" }, //i.e genre[10] == popularSciFiMovies
   ];
 
+  //grab fetch urls from FetchUrl. Promise.all runs all fetches simultaneously
   const fetchData = () => {
     Promise.all(FetchUrl).then((data) => {
       setMovieGenre((prevValue) => {
@@ -124,11 +126,12 @@ export const Home = () => {
       {/* below the title screen */}
       <div className="middleHome">
         <p className="blurb">Browse movies and add them to your watchlist.</p>
+        {/* Map top movie categories */}
         {topMoviesGenres.map((item, index) => {
           return (
             <MovieGenres
               key={index}
-              movieGen={movieGenre[item.genres]}
+              topMovieGenreList={movieGenre[item.genres]}
               title={item.title}
             />
           );
