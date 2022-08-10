@@ -64,7 +64,14 @@ export const ResultCard = (props) => {
     <div className="result-card position-relative">
       {/* movie poster image*/}
       <div className="movie-info-box">
-        <div className="poster-wrapper">
+        <div
+          className="poster-wrapper"
+          // Click to search movie trailer
+          onClick={() => {
+            handleShow();
+            getTrailer(movie.id);
+          }}
+        >
           <button className="details">SHOW DETAILS</button>
           {poster()}
           {/* {movie.poster_path ? (
@@ -169,7 +176,7 @@ export const ResultCard = (props) => {
               <i className="fas fa-check"></i>
             </button>
           </div>
-          
+
           {/* Get Trailer */}
 
           {/* Bootstrap-react Modal to show movie trailer */}
@@ -187,6 +194,7 @@ export const ResultCard = (props) => {
               ) : (
                 "No Trailer found for this movie"
               )}
+              {movie.overview}
             </Modal.Body>
             <Modal.Footer>
               <button variant="secondary" onClick={handleClose}>
@@ -194,18 +202,6 @@ export const ResultCard = (props) => {
               </button>
             </Modal.Footer>
           </Modal>
-          {/* Click to search movie trailer */}
-          <div>
-            <button
-              className="trailer-button"
-              onClick={() => {
-                handleShow();
-                getTrailer(movie.id);
-              }}
-            >
-              See Trailer
-            </button>
-          </div>
         </div>
       </div>
     </div>
