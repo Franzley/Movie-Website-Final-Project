@@ -3,13 +3,25 @@ import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useAuth } from "../firebase/AuthContext";
 import { useHistory } from "react-router-dom";
-import "../../styles/login.css";
+import "../../styles/navbar.css";
 import logo from "../../images/logo.png";
+import logo_white from "../../images/logo_white.png";
+import { useLocation } from "react-router-dom";
 
 export const Navbar = () => {
   const [error, setError] = useState("");
   const history = useHistory();
   const { currentUser, logout } = useAuth();
+
+  const location = useLocation();
+  console.log(location.pathname.replace("/", ""));
+
+  //Change navbar color depending on current webpage path
+  const navColor = `navbar navbar-dark nav-${
+    location.pathname.replace("/", "") === ""
+      ? "home"
+      : location.pathname.replace("/", "")
+  }`;
 
   //Logout Feature
   async function handleLogout() {
@@ -21,12 +33,14 @@ export const Navbar = () => {
       setError("Failed to log out");
     }
   }
-
   return (
-    <nav className="navbar navbar-light bg-light mb-3">
+    <nav className={navColor}>
       <Link to="/">
         <span className="navbar-brand mb-0 h1">
-          <img src={logo} alt="Our Ranking System" />
+          <img
+            src={location.pathname.replace("/", "") === "" ? logo : logo_white}
+            alt="Logo"
+          />
         </span>
       </Link>
       <div className="ml-auto">

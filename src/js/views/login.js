@@ -3,6 +3,7 @@ import { Card, Button, Form, Alert } from "react-bootstrap";
 import InputFields from "../component/InputFields.jsx";
 import { useAuth } from "../firebase/AuthContext.js";
 import { Link, useHistory } from "react-router-dom";
+import "../../styles/login.css";
 
 
 export const Login = () => {
