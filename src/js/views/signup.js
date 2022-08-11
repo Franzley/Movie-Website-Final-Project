@@ -4,6 +4,7 @@ import InputFields from "../component/InputFields.jsx";
 import { useAuth } from "../firebase/AuthContext.js";
 import { Link, useHistory } from "react-router-dom";
 import "../../styles/signup.css";
+import littlepopcorn from "../../images/littlepopcorn.png";
 
 export const Signup = () => {
   const emailRef = useRef();
@@ -83,9 +84,89 @@ export const Signup = () => {
               Already have an account? <Link className="signup"to="/login">Log In</Link>
             </div>
           </div>
-          <div className="ellipse-14"></div>
-          <div className="ellipse-15"></div>
+
         </Card>
+        <div className="bubble">
+            <img className="littlepopcorn" src={littlepopcorn} />
+          </div>{" "}
+          <div className="bubble">
+            <img className="littlepopcorn" src={littlepopcorn} />
+          </div>{" "}
+          <div className="bubble">
+            <img className="littlepopcorn" src={littlepopcorn} />
+          </div>{" "}
+          <div className="bubble">
+            <img className="littlepopcorn" src={littlepopcorn} />
+          </div>{" "}
+          <div className="bubble">
+            <img className="littlepopcorn" src={littlepopcorn} />
+          </div>{" "}
+          <div className="bubble">
+            <img className="littlepopcorn" src={littlepopcorn} />
+          </div>{" "}
+          <div className="bubble">
+            <img className="littlepopcorn" src={littlepopcorn} />
+          </div>{" "}
+          <div className="bubble">
+            <img className="littlepopcorn" src={littlepopcorn} />
+          </div>
+          <div className="bubble">
+            <img className="littlepopcorn" src={littlepopcorn} />
+          </div>
+          <div className="bubble">
+            <img className="littlepopcorn" src={littlepopcorn} />
+          </div>
+          <div className="bubble">
+            <img className="littlepopcorn" src={littlepopcorn} />
+          </div>
+          <div className="bubble">
+            <img className="littlepopcorn" src={littlepopcorn} />
+          </div>
+          <div className="bubble">
+            <img className="littlepopcorn" src={littlepopcorn} />
+          </div>
+          <div className="bubble">
+            <img className="littlepopcorn" src={littlepopcorn} />
+          </div>
+          <div className="bubble">
+            <img className="littlepopcorn" src={littlepopcorn} />
+          </div>
+          <div className="bubble">
+            <img className="littlepopcorn" src={littlepopcorn} />
+          </div>
+          <div className="bubble">
+            <img className="littlepopcorn" src={littlepopcorn} />
+          </div>
+          <div className="bubble">
+            <img className="littlepopcorn" src={littlepopcorn} />
+          </div>
+          <div className="bubble">
+            <img className="littlepopcorn" src={littlepopcorn} />
+          </div>
+          <div className="bubble">
+            <img className="littlepopcorn" src={littlepopcorn} />
+          </div>
+          <div className="bubble">
+            <img className="littlepopcorn" src={littlepopcorn} />
+          </div>
+          <div className="bubble">
+            <img className="littlepopcorn" src={littlepopcorn} />
+          </div>
+          <div className="bubble">
+            <img className="littlepopcorn" src={littlepopcorn} />
+          </div>
+          <div className="bubble">
+            <img className="littlepopcorn" src={littlepopcorn} />
+          </div>
+          <div className="bubble">
+            <img className="littlepopcorn" src={littlepopcorn} />
+          </div>
+          <div className="bubble">
+            <img className="littlepopcorn" src={littlepopcorn} />
+          </div>
+          <div className="bubble">
+            <img className="littlepopcorn" src={littlepopcorn} />
+          </div>
       </div>
     </>
   );
