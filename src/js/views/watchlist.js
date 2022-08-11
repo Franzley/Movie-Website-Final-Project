@@ -4,6 +4,7 @@ import { useAuth } from "../firebase/AuthContext";
 import { Context } from "../store/appContext.js";
 import { ResultCard } from "../component/ResultCard";
 import "../../styles/watchlist.css";
+
 export const WatchList = () => {
   //Get the instance of the current user
   const { currentUser } = useAuth();
@@ -28,65 +29,66 @@ export const WatchList = () => {
   }, [store.watched]);
   return (
     <>
-    <div className="watchlist-container">
-      <div>
-        <Card className="card-container">
-          <Card.Body>
-            <h2 className="text-center mb-4">:popcorn: MY WATCHLIST :popcorn:</h2>
-            <p>
-              Click the <i className="fas fa-check"></i> to mark a movie as
-              watched. Click the <i className="fas fa-trash-alt"></i> to delete
-              a movie from your watchlist.{" "}
-            </p>
-            <strong>Email: </strong>
-            {currentUser.email}
-          </Card.Body>
-        </Card>
-        <br></br>
-        <h4>{watchList.length === 0 ? "ADD A MOVIE :popcorn:" : "WANT TO WATCH :popcorn:"}</h4>
-        <hr></hr>
-        <div className="search-results-list">
-          {
-            <ul className="results">
-              {watchList.map((movie) => (
-                <li key={movie.id}>
-                  <ResultCard
-                    movie={movie}
-                    collection_ID={movie.collection_ID}
-                  />
-                </li>
-              ))}
-            </ul>
-          }
+      <div className="watchlist-container">
+        <div>
+          <Card className="card-container">
+            <Card.Body>
+              <h2 className="text-center mb-4">
+                🍿 MY WATCHLIST 🍿
+              </h2>
+              <p>
+                Click the <i className="fas fa-check"></i> to mark a movie as
+                watched. Click the <i className="fas fa-trash-alt"></i> to
+                delete a movie from your watchlist.{" "}
+              </p>
+            </Card.Body>
+          </Card>
+          <br></br>
+          <h4>
+            {watchList.length === 0
+              ? "ADD A MOVIE 🍿"
+              : "WANT TO WATCH 🍿"}
+          </h4>
+          <hr></hr>
+          <div className="search-results-list">
+            {
+              <ul className="results">
+                {watchList.map((movie) => (
+                  <li key={movie.id}>
+                    <ResultCard
+                      movie={movie}
+                      collection_ID={movie.collection_ID}
+                    />
+                  </li>
+                ))}
+              </ul>
+            }
+          </div>
+        </div>
+        <div>
+          <br></br>
+          <h4>
+            {watched.length === 0
+              ? "NO COMPLETED MOVIES 🍿"
+              : "COMPLETED MOVIES 🍿"}
+          </h4>
+          <hr></hr>
+          <div className="search-results-list">
+            {
+              <ul className="results">
+                {watched.map((movie) => (
+                  <li key={movie.id}>
+                    <ResultCard
+                      movie={movie}
+                      collection_ID={movie.collection_ID}
+                    />
+                  </li>
+                ))}
+              </ul>
+            }
+          </div>
         </div>
       </div>
-      <div>
-        <Card className="card-container">
-          <Card.Body>
-            <h2 className="text-center mb-4">:popcorn: WATCHED :popcorn:</h2>
-          </Card.Body>
-        </Card>
-        <br></br>
-        <h4>
-          {watched.length === 0 ? "NO COMPLETED MOVIES :popcorn:" : "COMPLETED MOVIES :popcorn:"}
-        </h4>
-        <hr></hr>
-        <div className="search-results-list">
-          {
-            <ul className="results">
-              {watched.map((movie) => (
-                <li key={movie.id}>
-                  <ResultCard
-                    movie={movie}
-                    collection_ID={movie.collection_ID}
-                  />
-                </li>
-              ))}
-            </ul>
-          }
-        </div>
-      </div>
-    </div>
     </>
   );
 };
