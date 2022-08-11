@@ -8,12 +8,12 @@
 }
 .nav-signup{
     /* background: radial-gradient(#2f2e2e, #160f10); */
-    background: linear-gradient(45deg, #161616, #544946, #beaeae, #413b3b);
+    background: #161616;
     z-index: 2;
 }
 .nav-login{
     /* background: radial-gradient(#2f2e2e, #160f10); */
-    background: linear-gradient(45deg, #161616, #544946, #beaeae, #413b3b);
+    background: #161616;
     z-index: 2;
 }
 .nav-search{
