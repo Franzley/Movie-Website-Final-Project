@@ -1,0 +1,26 @@
+.nav-home{
+    background: radial-gradient(#db3d44, #c61019);
+    z-index: 2;
+}
+.nav-watch{
+    background: radial-gradient(#2f2e2e, #160f10);
+    z-index: 2;
+}
+.nav-signup{
+    /* background: radial-gradient(#2f2e2e, #160f10); */
+    background: linear-gradient(45deg, #161616, #544946, #beaeae, #413b3b);
+    z-index: 2;
+}
+.nav-login{
+    /* background: radial-gradient(#2f2e2e, #160f10); */
+    background: linear-gradient(45deg, #161616, #544946, #beaeae, #413b3b);
+    z-index: 2;
+}
+.nav-search{
+    background: radial-gradient(#2f2e2e, #160f10);
+    z-index: 2;
+}
+.nav-random{
+    background: radial-gradient(#2f2e2e, #160f10);
+    z-index: 2;
+}
