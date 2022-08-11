@@ -5,7 +5,7 @@ button {
     rgba(255, 255, 255, 0.25)
   );
 }
-.card-background {
+.login-card-background {
   border: none;
   background-color: transparent;
   display: flex;
@@ -16,6 +16,8 @@ button {
   height: 100%;
   padding: 15px;
   background-image: linear-gradient(45deg, #161616, #544946, #beaeae, #413b3b);
+  margin: 0;
+  overflow: hidden
 }
 .login-card {
   display: flex;
@@ -58,17 +60,7 @@ button {
   background-color: rgba(255, 255, 255, 0.1);
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
-  /* Login Card Width and height */
-  /* width: 430px;
-  height: 500px; */
-  /* padding */
-  /* padding: 20px 35px 15px 35px;
-  border: 0;
-  border-radius: 35px;
-  background: #141414f0; */
-  /* Box-shadow for 3d visualization*/
-  /* box-shadow: -6px -6px 6px rgba(66, 64, 64, 0.8),
-    6px 6px 6px rgba(70, 69, 69, 0.932); */
+  
 }
 
 .login-title {
@@ -152,65 +144,7 @@ button {
   font-size: 15px;
 }
 
-/* .ellipse-14 {
-    position: absolute;
-    bottom: -2px;
-    right: 25%;
-    z-index: 1;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background-image: linear-gradient(45deg, #ff0000,#0b0707,);
 
-} */
-
-/* @keyframes movement {
-  100% {
-      left:100%;
-  }
-}
-@-webkit-keyframes movement {
-  100% {
-      left:100%;
-  }
-} */
-
-/* .ellipse-15 {
-    position: absolute;
-    top: -2px;
-    left: 25%;
-    z-index: 1;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background-image: linear-gradient(45deg, #f20c0c, #000000); */
-/* animation: movement 5s linear infinite;
-    -webkit-animation: movement 5s linear infinite;
-    left:0; */
-
-/* .ellipse-16 {
-  position: absolute;
-  top: -2px;
-  right: 25%;
-  z-index: 1;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-image: linear-gradient(45deg, #f20c0c, #f5dede, #f89f9f, #f20c0c);
-  animation: bounce 0.7s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
-} */
-/* .ellipse-17 {
-  position: absolute;
-  bottom: -2px;
-  left: 25%;
-  z-index: 1;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-image: linear-gradient(45deg, #fdfdfd, #ff0707);
-} */
 @keyframes updown {
   0% {
     top: 110%;
@@ -268,52 +202,10 @@ button {
   }
 }
 
-/* body {
-background: radial-gradient(#500, #000);
-margin: 0;
-}
-body::after {
-content: ' ';
-display: block;
-position: absolute;
-background: linear-gradient(rgba(255,255,255,.6), rgba(128,128,255,.3));
-width: 4vh;
-height: 70vh;
-margin-left: -17vh;
-left: 50%;
-bottom: 20vh;
-z-index: 2;
-border-radius: 1vh 1vh 2vh 2vh;
-filter: blur(.5vh);
-transform: skewX(-2deg);
-} */
-
 .bubble {
-  /* height: 16vh;
-border-radius: 40%;
-width: 75px;
-height: 67px;
-left: 456px;
-top: 1025.12px;
-box-shadow: inset 0px -5px 0px rgba(206, 202, 202, 0.25), inset -10px -5px 20px rgba(219, 187, 46, 0.25);
-filter: drop-shadow(10px 10px 20px rgba(175, 129, 36, 0.25));
-transform: rotate(-39.91deg);
-background-image: linear-gradient(45deg, #f9d750, #fce9b6) ;
-position: absolute;
-filter: blur(2vh); */
-filter: blur(2vh); 
-
-  border-radius: (50%);
   position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -30px;
-  margin-left: -30px;
-  background: #fce9b6;
-  height: 60px;
-  width: 60px;
-  box-shadow: #fce9b6 65px -15px 0 -5px, #e2d099 25px -25px, #e8d268 30px 10px,
-    #ffffff 60px 15px 0 -10px, #f1e9c0 85px 5px 0 -5px;
+  height: 50px;
+  width: 50px;
   animation: updown linear 37s infinite, leftright ease-in-out 23s infinite,
     vastag linear 29s infinite, forog linear 31s infinite,
     pop linear 30s infinite;
@@ -334,18 +226,113 @@ filter: blur(2vh);
     pop linear 23s infinite;
 }
 .bubble:nth-child(5) {
-  animation: updown ease-in-out 29s infinite, leftright ease-in-out 31s infinite,
+  animation: updown ease-in-out 29s infinite, leftright ease-in-out 41s infinite,
     vastag linear 37s infinite, forog linear 47s infinite,
     pop linear 22s infinite;
 }
 .bubble:nth-child(6) {
-  animation: updown ease-in-out 29s infinite, leftright ease-in-out 31s infinite,
+  animation: updown ease-in-out 20s infinite, leftright ease-in-out 56s infinite,
     vastag linear 37s infinite, forog linear 47s infinite,
     pop linear 22s infinite;
 }
 .bubble:nth-child(7) {
-  animation: updown ease-in-out 29s infinite, leftright ease-in-out 31s infinite,
+  animation: updown ease-in-out 29s infinite, leftright ease-in-out 21s infinite,
+    vastag linear 37s infinite, forog linear 50s infinite,
+    pop linear 15s infinite;
+}
+.bubble:nth-child(8) {
+  animation: updown ease-in-out 25s infinite, leftright ease-in-out 23s infinite,
+    vastag linear 37s infinite, forog linear 57s infinite,
+    pop linear 11s infinite;
+}
+.bubble:nth-child(9) {
+  animation: updown ease-in-out 27s infinite, leftright ease-in-out 29s infinite,
     vastag linear 37s infinite, forog linear 47s infinite,
+    pop linear 17s infinite;
+}
+.bubble:nth-child(10) {
+  animation: updown ease-in-out 32s infinite, leftright ease-in-out 19s infinite,
+    vastag linear 39s infinite, forog linear 42s infinite,
+    pop linear 13s infinite;
+}
+.bubble:nth-child(11) {
+  animation: updown ease-in-out 36s infinite, leftright ease-in-out 31s infinite,
+    vastag linear 40s infinite, forog linear 45s infinite,
+    pop linear 12s infinite;
+}
+.bubble:nth-child(12) {
+  animation: updown ease-in-out 40s infinite, leftright ease-in-out 29s infinite,
+    vastag linear 50s infinite, forog linear 44s infinite,
+    pop linear 14s infinite;
+}
+.bubble:nth-child(13) {
+  animation: updown ease-in-out 10s infinite, leftright ease-in-out 28s infinite,
+    vastag linear 31s infinite, forog linear 43s infinite,
+    pop linear 16s infinite;
+}
+.bubble:nth-child(14) {
+  animation: updown ease-in-out 12s infinite, leftright ease-in-out 25s infinite,
+    vastag linear 32s infinite, forog linear 49s infinite,
+    pop linear 9s infinite;
+}
+.bubble:nth-child(15) {
+  animation: updown ease-in-out 13s infinite, leftright ease-in-out 37s infinite,
+    vastag linear 35s infinite, forog linear 41s infinite,
+    pop linear 8s infinite;
+}
+.bubble:nth-child(16) {
+  animation: updown ease-in-out 15s infinite, leftright ease-in-out 40s infinite,
+    vastag linear 30s infinite, forog linear 47s infinite,
+    pop linear 15s infinite;
+}
+.bubble:nth-child(17) {
+  animation: updown ease-in-out 20s infinite, leftright ease-in-out 56s infinite,
+    vastag linear 37s infinite, forog linear 47s infinite,
+    pop linear 22s infinite;
+}
+.bubble:nth-child(18) {
+  animation: updown ease-in-out 36s infinite, leftright ease-in-out 31s infinite,
+    vastag linear 40s infinite, forog linear 45s infinite,
+    pop linear 12s infinite;
+}
+.bubble:nth-child(19) {
+  animation: updown ease-in-out 15s infinite, leftright ease-in-out 40s infinite,
+    vastag linear 30s infinite, forog linear 47s infinite,
+    pop linear 15s infinite;
+}
+.bubble:nth-child(20) {
+  animation: updown ease-in-out 20s infinite, leftright ease-in-out 56s infinite,
+    vastag linear 37s infinite, forog linear 47s infinite,
+    pop linear 22s infinite;
+}
+.bubble:nth-child(21) {
+  animation: updown ease-in-out 36s infinite, leftright ease-in-out 31s infinite,
+    vastag linear 40s infinite, forog linear 45s infinite,
+    pop linear 12s infinite;
+}
+.bubble:nth-child(22) {
+  animation: updown ease-in-out 15s infinite, leftright ease-in-out 40s infinite,
+    vastag linear 30s infinite, forog linear 47s infinite,
+    pop linear 15s infinite;
+}
+.bubble:nth-child(23) {
+  animation: updown ease-in-out 15s infinite, leftright ease-in-out 40s infinite,
+    vastag linear 30s infinite, forog linear 47s infinite,
+    pop linear 15s infinite;
+}
+.bubble:nth-child(24) {
+  animation: updown ease-in-out 20s infinite, leftright ease-in-out 56s infinite,
+    vastag linear 37s infinite, forog linear 47s infinite,
+    pop linear 22s infinite;
+}
+.bubble:nth-child(25) {
+  animation: updown ease-in-out 15s infinite, leftright ease-in-out 40s infinite,
+    vastag linear 30s infinite, forog linear 47s infinite,
+    pop linear 15s infinite;
+}
+.bubble:nth-child(26) {
+  animation: updown ease-in-out 15s infinite, leftright ease-in-out 40s infinite,
+    vastag linear 30s infinite, forog linear 47s infinite,
     pop linear 15s infinite;
 }
 .bubble:last-child {
