@@ -90,10 +90,10 @@ button {
   border: none;
   outline: none;
   /* Custom design for the input field */
-  background: none;
+  background: black;
   font-size: 18px;
-  color: #555;
-  padding: 15px 10px 15px 5px;
+  color: #fff;
+  padding: 15px 10px 15px 21px;
 }
 .login-input-fields ::placeholder {
   font-size: 18px;

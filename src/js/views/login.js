@@ -3,7 +3,7 @@ import { Card, Button, Form, Alert } from "react-bootstrap";
 import InputFields from "../component/InputFields.jsx";
 import { useAuth } from "../firebase/AuthContext.js";
 import { Link, useHistory } from "react-router-dom";
-
+import "../../styles/login.css";
 
 export const Login = () => {
   const emailRef = useRef();
@@ -38,8 +38,9 @@ export const Login = () => {
                 {error && <Alert variant="danger">{error}</Alert>}
                 <div className="login-input-fields">
                   <form onSubmit={handleSubmit}>
-                    <div className="login-email-input">
+                    <div>
                       <InputFields
+                        className="login-email-input"
                         id="email"
                         label="Email"
                         placeholder="Email"
@@ -80,7 +81,6 @@ export const Login = () => {
           <div className="bubble"></div>
           <div className="bubble"></div>
           <div className="bubble"></div>
-
         </div>
       </div>
     </>
