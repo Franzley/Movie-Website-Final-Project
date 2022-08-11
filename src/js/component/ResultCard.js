@@ -118,7 +118,7 @@ export const ResultCard = (props) => {
             }
           >
             <button
-              className="circle-watchlist position-absolute top-0 start-0"
+              className="circle-watchlist position-absolute top-0 start-0" title="Add to Watchlist"
               onClick={addToWatchList}
             >
               <i className="fas fa-plus"></i>
@@ -144,7 +144,7 @@ export const ResultCard = (props) => {
             }
           >
             <button
-              className="clay"
+              className="clay" title="Remove from Watchlist"
               onClick={() => {
                 deleteWatchList(currentUser.email, props.collection_ID);
               }}
@@ -168,7 +168,7 @@ export const ResultCard = (props) => {
             }
           >
             <button
-              className={"position-absolute top-0 end-0 circle-watched"}
+              className={"position-absolute top-0 end-0 circle-watched"} title="Move to Watched"
               onClick={() => {
                 addToWatched(currentUser.email, props.collection_ID);
               }}
