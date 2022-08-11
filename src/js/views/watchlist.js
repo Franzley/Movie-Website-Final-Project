@@ -33,10 +33,11 @@ export const WatchList = () => {
 
   return (
     <>
+    <div className="watchlist-container">
       <div>
-        <Card>
+        <Card className="card-container">
           <Card.Body>
-            <h2 className="text-center mb-4">My Watchlist</h2>
+            <h2 className="text-center mb-4">🍿 MY WATCHLIST 🍿</h2>
             <p>
               Click the <i className="fas fa-check"></i> to mark a movie as
               watched. Click the <i className="fas fa-trash-alt"></i> to delete
@@ -47,7 +48,7 @@ export const WatchList = () => {
           </Card.Body>
         </Card>
         <br></br>
-        <h4>{watchList.length === 0 ? "Add a movie" : "Want to Watch"}</h4>
+        <h4>{watchList.length === 0 ? "ADD A MOVIE 🍿" : "WANT TO WATCH 🍿"}</h4>
         <hr></hr>
         <div className="search-results-list">
           {
@@ -66,14 +67,14 @@ export const WatchList = () => {
       </div>
 
       <div>
-        <Card>
+        <Card className="card-container">
           <Card.Body>
-            <h2 className="text-center mb-4">Watched</h2>
+            <h2 className="text-center mb-4">🍿 WATCHED 🍿</h2>
           </Card.Body>
         </Card>
         <br></br>
         <h4>
-          {watched.length === 0 ? "No Completed Movies" : "Completed Movies"}
+          {watched.length === 0 ? "NO COMPLETED MOVIES 🍿" : "COMPLETED MOVIES 🍿"}
         </h4>
         <hr></hr>
         <div className="search-results-list">
@@ -91,6 +92,7 @@ export const WatchList = () => {
           }
         </div>
       </div>
+    </div>
     </>
   );
 };
