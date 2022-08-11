@@ -99,10 +99,10 @@ button {
   border: none;
   outline: none;
   /* Custom design for the input field */
-  background: none;
+  background: black;
   font-size: 18px;
   color: rgb(255, 255, 255);
-  padding: 15px 10px 15px 5px;
+  padding: 15px 10px 15px 18px;
 }
 .signup-input-fields ::placeholder{
   font-size: 18px;
