@@ -93,3 +93,21 @@
   -o-transform: scale(1.2);
   transform: scale(1.2);
 }
+.modalStyle {
+  background: #1f1f1f;
+  border: none;
+  color: white;
+}
+.modalBody {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+
+}
+.modal {
+  backdrop-filter: blur(10px);
+}
+.vid {
+  margin-bottom: 15px;
+}

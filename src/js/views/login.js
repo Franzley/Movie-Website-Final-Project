@@ -35,7 +35,7 @@ export const Login = () => {
           <Card>
             <div className="login-card-body">
               <Card.Body>
-                <h2 className="text-center login-title mb-4">Log In</h2>
+                <h2 className="text-center login-title">Log In</h2>
                 {error && <Alert variant="danger">{error}</Alert>}
                 <div className="login-input-fields">
                   <form onSubmit={handleSubmit}>

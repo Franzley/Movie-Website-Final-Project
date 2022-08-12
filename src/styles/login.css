@@ -1,10 +1,14 @@
-button {
+/* button {
   background: linear-gradient(
     135deg,
     rgba(0, 0, 0, 0.22),
     rgba(255, 255, 255, 0.25)
   );
+} */
+html, body{
+  height:100%;
 }
+
 .login-card-background {
   border: none;
   background-color: transparent;
@@ -12,12 +16,13 @@ button {
   justify-content: center;
   align-items: center;
   position: relative;
-  width: 100%;
-  height: 100%;
+  /* width: auto; */
+  height: auto important!;
   padding: 15px;
-  background-image: linear-gradient(45deg, #161616, #544946, #beaeae, #413b3b);
+  background: linear-gradient(180deg, #161616, #692f2f, #cc0b0b); 
   margin: 0;
-  overflow: hidden
+  overflow: hidden;
+  background-size: cover;
 }
 .login-card {
   display: flex;
@@ -25,25 +30,8 @@ button {
   align-items: center;
   position: relative;
   width: 100%;
-  height: auto;
+  height: 100%;
   margin: auto;
-  /* position: absolute; */
-  /* z-index: -2; */
-  /* margin: 0; */
-  /*Display width and height*/
-  /* height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-  font-family: "Lato", sans-serif;
-  font-weight: 700;
-  /* To make all the elements center */
-  /* display: flex; */
-  /* align-items: center;
-  justify-content: center; */
-  /*Font color and background Color*/
-  /* color: #555;
-  background: #141414f0;
-  border: 0; */
 }
 .login-card-body {
   display: flex;
@@ -125,7 +113,7 @@ button {
   transition: 0.5s;
 }
 .login-button:hover {
-  background: hwb(357 0% 7%);
+  background: hwb(0 4% 96%);
 }
 .login-button:active {
   background: hwb(132 3% 95%);
@@ -134,13 +122,13 @@ button {
   padding-top: 20px;
   text-align: center;
   text-decoration: none;
-  color: #aaa;
+  color: rgb(16, 15, 15);
   font-size: 15px;
   transition: 0.5s;
 }
 .need-account a:hover {
   text-decoration: inherit;
-  color: #eb0f0f;
+  color: #0a0909;
   font-size: 15px;
 }
 
