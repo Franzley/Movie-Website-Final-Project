@@ -31,7 +31,7 @@ export const SearchResults = () => {
   };
 
   return (
-    <div className="container">
+    <div className="vh-100 container">
       <div className="search-page">
         <h1>🍿 MOVIE SEARCH 🍿</h1>
         {/* search box */}

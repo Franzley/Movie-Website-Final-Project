@@ -42,7 +42,7 @@ useEffect(() => {
 }, []);
 
   return (
-    <div className='randomMoviePageBackground'>
+    <div className='vh-100 randomMoviePageBackground'>
     <div className='randomPageTitle'> 🍿 RANDOM MOVIE GENERATOR 🍿 </div>
     <form className="genreForm">
       <label className='chooseGenre'>CHOOSE A GENRE:</label>
