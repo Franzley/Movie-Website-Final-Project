@@ -68,9 +68,9 @@ export const Navbar = () => {
         {currentUser ? (
           <>
             <Link to="/watch">
-              <button className="btn btn-danger">WatchList</button>
+              <button className="btn btn-danger m-1">WatchList</button>
             </Link>
-            <Button variant="link" onClick={handleLogout}>
+            <Button className="btn btn-danger m-1 logout" variant="link" onClick={handleLogout}>
               Log Out
             </Button>
           </>
