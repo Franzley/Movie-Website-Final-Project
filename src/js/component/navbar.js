@@ -5,7 +5,7 @@ import { useAuth } from "../firebase/AuthContext";
 import { useHistory } from "react-router-dom";
 import "../../styles/navbar.css";
 import logo from "../../images/logo.png";
-import logo_white from "../../images/logo_white.png";
+import logo_red from "../../images/logo_red.png";
 import { useLocation } from "react-router-dom";
 
 export const Navbar = () => {
@@ -38,7 +38,7 @@ export const Navbar = () => {
       <Link to="/">
         <span className="navbar-brand mb-0 h1">
           <img
-            src={location.pathname.replace("/", "") === "" ? logo : logo_white}
+            src={location.pathname.replace("/", "") === "" ? logo : logo_red}
             alt="Logo"
           />
         </span>

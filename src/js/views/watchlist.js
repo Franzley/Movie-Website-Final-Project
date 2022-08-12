@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import { Card } from "react-bootstrap";
 import { useAuth } from "../firebase/AuthContext";
 import { Context } from "../store/appContext.js";
@@ -27,15 +27,14 @@ export const WatchList = () => {
   useEffect(() => {
     setWatched(store.watched);
   }, [store.watched]);
+
   return (
     <>
       <div className="watchlist-container">
         <div>
           <Card className="card-container">
             <Card.Body>
-              <h2 className="text-center mb-4">
-                🍿 MY WATCHLIST 🍿
-              </h2>
+              <h2 className="text-center mb-4">🍿 MY WATCHLIST 🍿</h2>
               <p>
                 Click the <i className="fas fa-check"></i> to mark a movie as
                 watched. Click the <i className="fas fa-trash-alt"></i> to
@@ -45,14 +44,12 @@ export const WatchList = () => {
           </Card>
           <br></br>
           <h4>
-            {watchList.length === 0
-              ? "ADD A MOVIE 🍿"
-              : "WANT TO WATCH 🍿"}
+            {watchList.length === 0 ? "ADD A MOVIE 🍿" : "WANT TO WATCH 🍿"}
           </h4>
           <hr></hr>
           <div className="search-results-list">
             {
-              <ul className="results">
+              <ul className="scroll-list">
                 {watchList.map((movie) => (
                   <li key={movie.id}>
                     <ResultCard
@@ -75,7 +72,7 @@ export const WatchList = () => {
           <hr></hr>
           <div className="search-results-list">
             {
-              <ul className="results">
+              <ul className="scroll-list">
                 {watched.map((movie) => (
                   <li key={movie.id}>
                     <ResultCard

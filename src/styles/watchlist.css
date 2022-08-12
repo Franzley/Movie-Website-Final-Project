@@ -1,21 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
-  
-  .watchlist-container {
-    margin: 0px;
-    padding: 0px;
-    background: black;
-    color: white;
-    max-width: 100%;
-    font-family: 'Archivo Black', sans-serif;
-  }
-  .card-container {
-    color: white;
-    background: black;
-    font-family: 'Archivo Black', sans-serif;
-    /* font-size: 40px; */
-  }
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
 
-  .card-container h2{
-    font-size: 40px;
-    color: red;
-  }
+.watchlist-container {
+  margin: 0px;
+  padding: 0px;
+  background: black;
+  color: white;
+  max-width: 100%;
+  font-family: "Archivo Black", sans-serif;
+  overflow: hidden;
+}
+.card-container {
+  color: white;
+  background: black;
+  font-family: "Archivo Black", sans-serif;
+}
+
+.card-container h2 {
+  font-size: 40px;
+  color: red;
+}
+
+.scroll-list {
+  display: flex;
+  overflow-x: auto;
+  list-style-type: none;
+  overflow-y: hidden;
+}
