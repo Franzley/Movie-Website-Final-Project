@@ -180,24 +180,25 @@ export const ResultCard = (props) => {
           {/* Get Trailer */}
 
           {/* Bootstrap-react Modal to show movie trailer */}
-          <Modal show={show} onHide={handleClose}>
-            <Modal.Header closeButton>
-              <Modal.Title>{movie.title} Official Trailer</Modal.Title>
+          <Modal show={show} onHide={handleClose} className="modal">
+            <Modal.Header closeButton className="modalStyle">
+              <Modal.Title >{movie.title} Official Trailer</Modal.Title>
             </Modal.Header>
-            <Modal.Body>
+            <Modal.Body className="modalStyle modalBody">
               {store.trailer !== null ? (
+                <div className="vid">
                 <iframe
                   width="420"
                   height="315"
                   src={store.trailer.replace("watch?v=", "embed/")}
-                ></iframe>
+                ></iframe></div>
               ) : (
                 "No Trailer found for this movie"
               )}
               {movie.overview}
             </Modal.Body>
-            <Modal.Footer>
-              <button variant="secondary" onClick={handleClose}>
+            <Modal.Footer className="modalStyle">
+              <button className="btn btn-danger" variant="secondary" onClick={handleClose}>
                 Close
               </button>
             </Modal.Footer>
