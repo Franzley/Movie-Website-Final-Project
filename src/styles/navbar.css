@@ -24,3 +24,10 @@
     background: radial-gradient(#2f2e2e, #160f10);
     z-index: 2;
 }
+.logout {
+    text-decoration: none;
+    color:white;
+}
+.logout:hover {
+    color: white;
+}
