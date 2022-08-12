@@ -123,7 +123,10 @@ export const Home = () => {
       </div>
       {/* below the title screen */}
       <div className="middleHome">
-        <p className="blurb">Browse movies and add them to your watchlist.</p>
+        <p className="blurb">
+          Browse movies and add them to your watchlist. Just click the{" "}
+          <i className="fas fa-plus"></i> to add a movie to your watchlist.
+        </p>
         {topMoviesGenres.map((item, index) => {
           return (
             <MovieGenres

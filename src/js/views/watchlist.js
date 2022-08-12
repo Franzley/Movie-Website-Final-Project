@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import { Card } from "react-bootstrap";
 import { useAuth } from "../firebase/AuthContext";
 import { Context } from "../store/appContext.js";
@@ -27,6 +27,7 @@ export const WatchList = () => {
   useEffect(() => {
     setWatched(store.watched);
   }, [store.watched]);
+
   return (
     <>
       <div className="watchlist-container">
@@ -52,7 +53,7 @@ export const WatchList = () => {
           <hr></hr>
           <div className="search-results-list">
             {
-              <ul className="results">
+              <ul className="scroll-list">
                 {watchList.map((movie) => (
                   <li key={movie.id}>
                     <ResultCard
@@ -75,7 +76,7 @@ export const WatchList = () => {
           <hr></hr>
           <div className="search-results-list">
             {
-              <ul className="results">
+              <ul className="scroll-list">
                 {watched.map((movie) => (
                   <li key={movie.id}>
                     <ResultCard
