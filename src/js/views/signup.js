@@ -39,8 +39,7 @@ export const Signup = () => {
   }
 
   return (
-    <>
-      <div className="signup-card">
+      <div className="vh-100 signup-card">
         <Card>
           <div className="signup-card-body">
             <Card.Body>
@@ -168,7 +167,6 @@ export const Signup = () => {
             <img className="littlepopcorn" src={littlepopcorn} />
           </div>
       </div>
-    </>
   );
   
 };

@@ -29,7 +29,6 @@ export const WatchList = () => {
   }, [store.watched]);
 
   return (
-    <>
       <div className="watchlist-container">
         <div>
           <Card className="card-container">
@@ -90,6 +89,5 @@ export const WatchList = () => {
           </div>
         </div>
       </div>
-    </>
   );
 };

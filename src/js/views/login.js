@@ -29,8 +29,7 @@ export const Login = () => {
   }
 
   return (
-    <>
-      <div className="login-card-background">
+      <div className="vh-100 login-card-background">
         <div className="login-card">
           <Card>
             <div className="login-card-body">
@@ -157,6 +156,5 @@ export const Login = () => {
           </div>        
           </div>
       </div>
-    </>
   );
 };
