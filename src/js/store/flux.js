@@ -76,8 +76,8 @@ const getState = ({ getStore, getActions, setStore }) => {
           })
           .then(() => {
             console.log("Document successfully written!");
+            actions.loadDatabase(currentUser)
           })
-          .then(actions.loadDatabase(currentUser))
           .catch((error) => {
             console.error("Error writing document: ", error);
           });
@@ -91,8 +91,8 @@ const getState = ({ getStore, getActions, setStore }) => {
           .delete()
           .then(() => {
             console.log("Document successfully deleted!");
+            actions.loadDatabase(currentUser)
           })
-          .then(actions.loadDatabase(currentUser))
           .catch((error) => {
             console.error("Error removing document: ", error);
           });
