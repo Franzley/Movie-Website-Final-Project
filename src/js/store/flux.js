@@ -101,6 +101,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         async function trailerMovie() {
           //wait for fetch promise to complete then set the response to trailer setstore
           //search trailer by the movie's id located in The Movie DataBase
+          setStore({ trailer: "" });
           await movieTrailer(null, { tmdbId: id }).then((response) => {
             setStore({ trailer: response });
           });
