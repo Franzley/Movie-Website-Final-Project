@@ -1,6 +1,12 @@
+//React
 import React from "react";
-import { ResultCard } from "./ResultCard";
+
+//Components
+import { ResultCard } from "./ResultCard.jsx";
+
+//Styles CSS
 import "../../styles/home.css";
+
 const MovieGenres = (props) => {
   const movieGenre = props.movieGen;
 

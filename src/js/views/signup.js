@@ -1,10 +1,21 @@
+//React
 import React, { useRef, useState } from "react";
 import { Card, Button, Form, Alert } from "react-bootstrap";
-import InputFields from "../component/InputFields.jsx";
-import { useAuth } from "../firebase/AuthContext.js";
 import { Link, useHistory } from "react-router-dom";
+
+//Styles CSS
 import "../../styles/signup.css";
+
+//Images
 import littlepopcorn from "../../images/littlepopcorn.png";
+
+//Context
+import { useAuth } from "../firebase/AuthContext.js";
+
+//Components
+import BubblePopcorn from "../component/BubblePopcorn.jsx";
+import InputFields from "../component/InputFields.jsx";
+
 
 export const Signup = () => {
   const emailRef = useRef();
@@ -39,134 +50,56 @@ export const Signup = () => {
   }
 
   return (
-      <div className="vh-100 signup-card">
-        <Card>
-          <div className="signup-card-body">
-            <Card.Body>
-              <h2 className="signup-title text-center mb-4">Sign Up</h2>
-              {error && <Alert variant="danger">{error}</Alert>}
-              <div className="signup-input-fields">
-                <form onSubmit={handleSubmit}>
-                  <InputFields
-                    className="signup-email-input"
-                    id="email"
-                    placeholder="Email"
-                    type="email"
-                    refs={emailRef}
-                  />
-                  <InputFields
-                    className="signup-password-input"
-                    id="password"
-                    placeholder="Password"
-                    type="password"
-                    refs={passwordRef}
-                  />
-                  <InputFields
-                    className="signup-password-confirm"
-                    id="password-confirm"
-                    placeholder="Password Confirm"
-                    type="password"
-                    refs={passwordConfirmRef}
-                  />
+    <div className="vh-100 signup-card">
+      <Card>
+        <div className="signup-card-body">
+          <Card.Body>
+            <h2 className="signup-title text-center mb-4">Sign Up</h2>
+            {error && <Alert variant="danger">{error}</Alert>}
+            <div className="signup-input-fields">
+              <form onSubmit={handleSubmit}>
+                <InputFields
+                  className="signup-email-input"
+                  id="email"
+                  placeholder="Email"
+                  type="email"
+                  refs={emailRef}
+                />
+                <InputFields
+                  className="signup-password-input"
+                  id="password"
+                  placeholder="Password"
+                  type="password"
+                  refs={passwordRef}
+                />
+                <InputFields
+                  className="signup-password-confirm"
+                  id="password-confirm"
+                  placeholder="Password Confirm"
+                  type="password"
+                  refs={passwordConfirmRef}
+                />
 
-                  <Button
-                    disabled={loading}
-                    className="signup-button w-100 mt-3"
-                    type="submit"
-                  >
-                    Sign Up
-                  </Button>
-                </form>
-              </div>
-            </Card.Body>
-            <div className=" have-account w-100 text-center mt-2">
-              Already have an account? <Link className="signup"to="/login">Log In</Link>
+                <Button
+                  disabled={loading}
+                  className="signup-button w-100 mt-3"
+                  type="submit"
+                >
+                  Sign Up
+                </Button>
+              </form>
             </div>
+          </Card.Body>
+          <div className=" have-account w-100 text-center mt-2">
+            Already have an account?{" "}
+            <Link className="signup" to="/login">
+              Log In
+            </Link>
           </div>
-
-        </Card>
-        <div className="bubble">
-            <img className="littlepopcorn" src={littlepopcorn} />
-          </div>{" "}
-          <div className="bubble">
-            <img className="littlepopcorn" src={littlepopcorn} />
-          </div>{" "}
-          <div className="bubble">
-            <img className="littlepopcorn" src={littlepopcorn} />
-          </div>{" "}
-          <div className="bubble">
-            <img className="littlepopcorn" src={littlepopcorn} />
-          </div>{" "}
-          <div className="bubble">
-            <img className="littlepopcorn" src={littlepopcorn} />
-          </div>{" "}
-          <div className="bubble">
-            <img className="littlepopcorn" src={littlepopcorn} />
-          </div>{" "}
-          <div className="bubble">
-            <img className="littlepopcorn" src={littlepopcorn} />
-          </div>{" "}
-          <div className="bubble">
-            <img className="littlepopcorn" src={littlepopcorn} />
-          </div>
-          <div className="bubble">
-            <img className="littlepopcorn" src={littlepopcorn} />
-          </div>
-          <div className="bubble">
-            <img className="littlepopcorn" src={littlepopcorn} />
-          </div>
-          <div className="bubble">
-            <img className="littlepopcorn" src={littlepopcorn} />
-          </div>
-          <div className="bubble">
-            <img className="littlepopcorn" src={littlepopcorn} />
-          </div>
-          <div className="bubble">
-            <img className="littlepopcorn" src={littlepopcorn} />
-          </div>
-          <div className="bubble">
-            <img className="littlepopcorn" src={littlepopcorn} />
-          </div>
-          <div className="bubble">
-            <img className="littlepopcorn" src={littlepopcorn} />
-          </div>
-          <div className="bubble">
-            <img className="littlepopcorn" src={littlepopcorn} />
-          </div>
-          <div className="bubble">
-            <img className="littlepopcorn" src={littlepopcorn} />
-          </div>
-          <div className="bubble">
-            <img className="littlepopcorn" src={littlepopcorn} />
-          </div>
-          <div className="bubble">
-            <img className="littlepopcorn" src={littlepopcorn} />
-          </div>
-          <div className="bubble">
-            <img className="littlepopcorn" src={littlepopcorn} />
-          </div>
-          <div className="bubble">
-            <img className="littlepopcorn" src={littlepopcorn} />
-          </div>
-          <div className="bubble">
-            <img className="littlepopcorn" src={littlepopcorn} />
-          </div>
-          <div className="bubble">
-            <img className="littlepopcorn" src={littlepopcorn} />
-          </div>
-          <div className="bubble">
-            <img className="littlepopcorn" src={littlepopcorn} />
-          </div>
-          <div className="bubble">
-            <img className="littlepopcorn" src={littlepopcorn} />
-          </div>
-          <div className="bubble">
-            <img className="littlepopcorn" src={littlepopcorn} />
-          </div>
-          <div className="bubble">
-            <img className="littlepopcorn" src={littlepopcorn} />
-          </div>
-      </div>
+        </div>
+      </Card>
+      {/* Popcorn animation */}
+      <BubblePopcorn howMany={27} src={littlepopcorn} />
+    </div>
   );
-  
 };

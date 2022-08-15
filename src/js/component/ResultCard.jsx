@@ -1,11 +1,19 @@
+//React
 import React, { useContext, useState } from "react";
+import { Modal } from "react-bootstrap";
+
+//Styles CSS
 import "../../styles/ResultCard.css";
+
+//Images
 import excellent from "../../images/excellent.png";
 import good from "../../images/good.png";
 import bad from "../../images/bad.png";
-import { Context } from "../store/appContext.js";
+
+//Context
 import { useAuth } from "../firebase/AuthContext";
-import { Modal } from "react-bootstrap";
+import { Context } from "../store/appContext.js";
+
 
 export const ResultCard = (props) => {
   const { store, actions } = useContext(Context);

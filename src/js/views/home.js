@@ -1,8 +1,18 @@
+//React
 import React, { useEffect, useState } from "react";
+
+//Styles CSS
 import "../../styles/home.css";
+
+//Images
 import group from "../../images/group.png";
-import { FetchUrl } from "../FetchUrl.js";
+
+//Components
 import MovieGenres from "../component/MovieGenres.jsx";
+
+//Functions
+import { FetchUrl } from "../FetchUrl.js";
+
 
 export const Home = () => {
   const [movieGenre, setMovieGenre] = useState({

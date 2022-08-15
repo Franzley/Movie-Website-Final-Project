@@ -1,9 +1,17 @@
+//React
 import React, { useState, useEffect, useContext, useRef } from "react";
 import { Card } from "react-bootstrap";
+
+//Styles CSS
+import "../../styles/watchlist.css";
+
+//Context
 import { useAuth } from "../firebase/AuthContext";
 import { Context } from "../store/appContext.js";
-import { ResultCard } from "../component/ResultCard";
-import "../../styles/watchlist.css";
+
+//Components
+import { ResultCard } from "../component/ResultCard.jsx";
+
 
 export const WatchList = () => {
   //Get the instance of the current user

@@ -1,6 +1,12 @@
+//React
 import React, {useState, useEffect} from 'react'
-import { ResultCard } from '../component/ResultCard'
+
+//Styles CSS
 import "../../styles/randomMovie.css"
+
+//Components
+import { ResultCard } from '../component/ResultCard.jsx'
+
 
 export const RandomMovie = ({movie}) => {
   const [movieGenre, setMovieGenre] = useState([]);
