@@ -1,20 +1,25 @@
+//React
 import React, { useState } from "react";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { useAuth } from "../firebase/AuthContext";
-import { useHistory } from "react-router-dom";
+
+//Styles CSS
 import "../../styles/navbar.css";
+
+//Images
 import logo from "../../images/logo.png";
 import logo_red from "../../images/logo_red.png";
-import { useLocation } from "react-router-dom";
 
-export const Navbar = () => {
+//Context
+import { useAuth } from "../firebase/AuthContext";
+
+
+const Navbar = () => {
   const [error, setError] = useState("");
   const history = useHistory();
   const { currentUser, logout } = useAuth();
 
   const location = useLocation();
-  console.log(location.pathname.replace("/", ""));
 
   //Change navbar color depending on current webpage path
   const navColor = `navbar navbar-dark nav-${
@@ -81,3 +86,5 @@ export const Navbar = () => {
     </nav>
   );
 };
+
+export default Navbar

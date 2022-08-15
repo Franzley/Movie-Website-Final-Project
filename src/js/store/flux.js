@@ -11,13 +11,9 @@ const getState = ({ getStore, getActions, setStore }) => {
       trailer: "",
     },
     actions: {
-      loadSomeData: () => {},
-
       //Every new movie is sent to firestore
       //Each new collection created is tied to current user, each stored movie gets unique ID
       addToWatchList: (currentUser, movie) => {
-        const store = getStore();
-
         db.collection(currentUser)
           .add({
             movie,
@@ -31,13 +27,14 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       //Grab movies in firestore and store in watchlist
       loadDatabase: (currentUser) => {
-
         db.collection(currentUser)
           .get()
           .then((querySnapshot) => {
             const watchListArray = [];
-            //Load watchlist
+            const watchedArray = [];
+
             querySnapshot.forEach((doc) => {
+              //Load watchlist
               if (doc.data().movie) {
                 watchListArray.push({
                   //create a new object containing the current movie details and it's unique firestore ID
@@ -45,13 +42,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                   collection_ID: doc.id,
                 });
               }
-            });
-            //store each movie locally in flux store
-            setStore({ watchlist: watchListArray });
-
-            const watchedArray = [];
-            //load completed movies
-            querySnapshot.forEach((doc) => {
+              //load completed movies
               if (doc.data().watched) {
                 watchedArray.push({
                   //create a new object containing the current movie details and it's unique firestore ID
@@ -60,6 +51,9 @@ const getState = ({ getStore, getActions, setStore }) => {
                 });
               }
             });
+
+            //store each movie locally in flux store
+            setStore({ watchlist: watchListArray });
             //store each movie locally in flux store
             setStore({ watched: watchedArray });
           });
@@ -91,7 +85,6 @@ const getState = ({ getStore, getActions, setStore }) => {
       //Grab the unique ID corresponding to the movie that will be deleted
       //Then call function to reload the store containing the updated values
       deleteFromDatabase: (currentUser, id) => {
-        const store = getStore();
         const actions = getActions();
         db.collection(currentUser)
           .doc(id)

@@ -1,5 +1,8 @@
+//React
 import React from "react";
 import { Redirect, Route } from "react-router-dom";
+
+//Context
 import { useAuth } from "../firebase/AuthContext";
 
 //If there is no currently signed in user detected, redirect to login page

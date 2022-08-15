@@ -1,6 +1,12 @@
+//React
 import React, { useState } from "react";
-import { ResultCard } from "../component/ResultCard";
+
+//Styles CSS
 import "../../styles/searchresults.css";
+
+//Components
+import { ResultCard } from "../component/ResultCard.jsx";
+
 
 export const SearchResults = () => {
   const [query, setQuery] = useState("");
