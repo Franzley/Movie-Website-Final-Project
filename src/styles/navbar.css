@@ -3,7 +3,7 @@
     z-index: 2;
 }
 .nav-watch{
-    background: radial-gradient(#2f2e2e, #160f10);
+    background: black;
     z-index: 2;
 }
 .nav-signup{
@@ -17,11 +17,11 @@
     z-index: 2;
 }
 .nav-search{
-    background: radial-gradient(#2f2e2e, #160f10);
+    background: black;
     z-index: 2;
 }
 .nav-random{
-    background: radial-gradient(#2f2e2e, #160f10);
+    background: black;
     z-index: 2;
 }
 .logout {
