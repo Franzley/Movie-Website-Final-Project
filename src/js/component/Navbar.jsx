@@ -1,5 +1,5 @@
 //React
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
@@ -12,9 +12,10 @@ import logo_red from "../../images/logo_red.png";
 
 //Context
 import { useAuth } from "../firebase/AuthContext";
-
+import { Context } from "../store/appContext.js";
 
 const Navbar = () => {
+  const { store, actions } = useContext(Context);
   const [error, setError] = useState("");
   const history = useHistory();
   const { currentUser, logout } = useAuth();
@@ -37,6 +38,7 @@ const Navbar = () => {
     } catch {
       setError("Failed to log out");
     }
+    actions.clearOnLogout();
   }
   return (
     <nav className={navColor}>
