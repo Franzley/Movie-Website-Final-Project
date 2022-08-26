@@ -109,6 +109,10 @@ const getState = ({ getStore, getActions, setStore }) => {
         //Call function
         trailerMovie();
       },
+      clearOnLogout: () => {
+        setStore({ watchlist: [] });
+        setStore({ watched: [] });
+      },
     },
   };
 };
