@@ -201,7 +201,7 @@ export const ResultCard = (props) => {
                   src={store.trailer.replace("watch?v=", "embed/")}
                 ></iframe></div>
               ) : (
-                "No Trailer found for this movie"
+                <p className="no-trailer"><strong> No Trailer found for this movie </strong></p>
               )}
               {movie.overview}
             </Modal.Body>
