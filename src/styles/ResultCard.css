@@ -84,6 +84,9 @@
 .trailer-button{
   color: red;
 }
+.no-trailer{
+  color: red;
+}
 .poster-wrapper{
   overflow: hidden;
 }
